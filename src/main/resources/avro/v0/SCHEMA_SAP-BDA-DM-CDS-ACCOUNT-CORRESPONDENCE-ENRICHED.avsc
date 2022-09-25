@@ -1,0 +1,891 @@
+{
+  "type": "record",
+  "name": "AccountCorrespondenceInformationMessage",
+  "namespace": "au.com.cba.kafka.account.correspondence",
+  "doc": "This schema is to support account correspondence information from SAP Banking",
+  "fields": [
+    {
+      "name": "header",
+      "type": {
+        "type": "record",
+        "name": "KafkaEventHeader",
+        "namespace": "au.com.cba.kafka.core",
+        "fields": [
+          {
+            "name": "correlationId",
+            "type": {
+              "type": "string",
+              "avro.java.string": "String"
+            }
+          },
+          {
+            "name": "processPath",
+            "type": [
+              "null",
+              {
+                "type": "array",
+                "items": {
+                  "type": "record",
+                  "name": "ProcessPathElement",
+                  "fields": [
+                    {
+                      "name": "source",
+                      "type": {
+                        "type": "string",
+                        "avro.java.string": "String"
+                      }
+                    },
+                    {
+                      "name": "timestamp",
+                      "type": {
+                        "type": "string",
+                        "avro.java.string": "String"
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "name": "createTimestamp",
+      "type": "string"
+    },
+    {
+      "name": "CorroData",
+      "type": {
+        "type": "record",
+        "name": "cbadmStrCdsAcCorr",
+        "fields": [
+          {
+            "name": "commonInformation",
+            "type": {
+              "type": "record",
+              "name": "cbadmStrCdsCommon57",
+              "fields": [
+                {
+                  "name": "contractDetailResult",
+                  "type": {
+                    "type": "record",
+                    "name": "cbadmStrContrDataOpR3365",
+                    "fields": [
+                      {
+                        "name": "accountData",
+                        "type": {
+                          "type": "record",
+                          "name": "bapiAccamCnAccount74",
+                          "fields": [
+                            {
+                              "name": "internalAccountId",
+                              "type": "string"
+                            },
+                            {
+                              "name": "accountChangeTimestamp",
+                              "type": "double"
+                            },
+                            {
+                              "name": "validFrom",
+                              "type": "long"
+                            },
+                            {
+                              "name": "validTo",
+                              "type": "long"
+                            },
+                            {
+                              "name": "validToReal",
+                              "type": "long"
+                            },
+                            {
+                              "name": "accountNumber",
+                              "type": "string"
+                            },
+                            {
+                              "name": "bankCountry",
+                              "type": "string"
+                            },
+                            {
+                              "name": "bankCountryIso",
+                              "type": "string"
+                            },
+                            {
+                              "name": "bankCode",
+                              "type": "string"
+                            },
+                            {
+                              "name": "accountCurrency",
+                              "type": "string"
+                            },
+                            {
+                              "name": "accountCurrencyIso",
+                              "type": "string"
+                            },
+                            {
+                              "name": "accountUsage",
+                              "type": "string"
+                            },
+                            {
+                              "name": "checkDigitCalculation",
+                              "type": "string"
+                            },
+                            {
+                              "name": "userLastChange",
+                              "type": "string"
+                            },
+                            {
+                              "name": "changeBtcatg",
+                              "type": "string"
+                            },
+                            {
+                              "name": "tobeReleased",
+                              "type": "string"
+                            },
+                            {
+                              "name": "iban",
+                              "type": "string"
+                            }
+                          ]
+                        }
+                      },
+                      {
+                        "name": "accountAnchorData",
+                        "type": {
+                          "type": "record",
+                          "name": "cbadmStrAccAnchorData94",
+                          "fields": [
+                            {
+                              "name": "internalAccountId",
+                              "type": "string"
+                            },
+                            {
+                              "name": "contractChangeTimestamp",
+                              "type": "double"
+                            },
+                            {
+                              "name": "validFrom",
+                              "type": "long"
+                            },
+                            {
+                              "name": "validTo",
+                              "type": "long"
+                            },
+                            {
+                              "name": "validToReal",
+                              "type": "long"
+                            },
+                            {
+                              "name": "contractBegin",
+                              "type": "long"
+                            },
+                            {
+                              "name": "contractPlannedEnd",
+                              "type": "long"
+                            },
+                            {
+                              "name": "contractActualEnd",
+                              "type": "long"
+                            },
+                            {
+                              "name": "contractProcessFrom",
+                              "type": "long"
+                            },
+                            {
+                              "name": "contractProductiveFrom",
+                              "type": "long"
+                            },
+                            {
+                              "name": "productIdInternal",
+                              "type": "string"
+                            },
+                            {
+                              "name": "productVersion",
+                              "type": "string"
+                            },
+                            {
+                              "name": "productCategory",
+                              "type": "string"
+                            },
+                            {
+                              "name": "accountCurrency",
+                              "type": "string"
+                            },
+                            {
+                              "name": "accountCurrencyIso",
+                              "type": "string"
+                            },
+                            {
+                              "name": "calenderKey1",
+                              "type": "string"
+                            },
+                            {
+                              "name": "calenderKey2",
+                              "type": "string"
+                            },
+                            {
+                              "name": "calenderKey3",
+                              "type": "string"
+                            },
+                            {
+                              "name": "status",
+                              "type": "string"
+                            },
+                            {
+                              "name": "tobeReleased",
+                              "type": "string"
+                            },
+                            {
+                              "name": "authGroup",
+                              "type": "string"
+                            },
+                            {
+                              "name": "userLastChange",
+                              "type": "string"
+                            },
+                            {
+                              "name": "changeBtcatg",
+                              "type": "string"
+                            },
+                            {
+                              "name": "migrationGroup",
+                              "type": "string"
+                            },
+                            {
+                              "name": "product",
+                              "type": "string"
+                            },
+                            {
+                              "name": "productdescr",
+                              "type": "string"
+                            }
+                          ]
+                        }
+                      },
+                      {
+                        "name": "contractPurposeData",
+                        "type": {
+                          "type": "record",
+                          "name": "bapiBcaStrPurposeData121",
+                          "fields": [
+                            {
+                              "name": "contractPurpose",
+                              "type": "string"
+                            },
+                            {
+                              "name": "language",
+                              "type": "string"
+                            },
+                            {
+                              "name": "languageIso",
+                              "type": "string"
+                            },
+                            {
+                              "name": "validFrom",
+                              "type": "long"
+                            },
+                            {
+                              "name": "validTo",
+                              "type": "long"
+                            },
+                            {
+                              "name": "creationReferenceId",
+                              "type": "string"
+                            },
+                            {
+                              "name": "creationReferenceScheme",
+                              "type": "string"
+                            },
+                            {
+                              "name": "creationReferenceAgency",
+                              "type": "string"
+                            },
+                            {
+                              "name": "creationProductId",
+                              "type": "string"
+                            },
+                            {
+                              "name": "creationProductScheme",
+                              "type": "string"
+                            },
+                            {
+                              "name": "creationProductAgency",
+                              "type": "string"
+                            },
+                            {
+                              "name": "salesContractRef",
+                              "type": "string"
+                            }
+                          ]
+                        }
+                      },
+                      {
+                        "name": "contractDesc",
+                        "type": "string"
+                      },
+                      {
+                        "name": "activityStatus",
+                        "type": {
+                          "type": "record",
+                          "name": "cbadmStrActivityStData139",
+                          "fields": [
+                            {
+                              "name": "activityStatus",
+                              "type": "string"
+                            },
+                            {
+                              "name": "actStatusDesc",
+                              "type": "string"
+                            },
+                            {
+                              "name": "propertyCode",
+                              "type": "string"
+                            }
+                          ]
+                        }
+                      }
+                    ]
+                  }
+                },
+                {
+                  "name": "cbaExtension1",
+                  "type": {
+                    "type": "record",
+                    "name": "cbadmStrExtData150",
+                    "fields": [
+                      {
+                        "name": "moo",
+                        "type": "string"
+                      },
+                      {
+                        "name": "acOpnRsnCode",
+                        "type": "string"
+                      },
+                      {
+                        "name": "isRelForRelat",
+                        "type": "string"
+                      },
+                      {
+                        "name": "acctUse",
+                        "type": "string"
+                      },
+                      {
+                        "name": "acctUseText",
+                        "type": "string"
+                      },
+                      {
+                        "name": "classCode",
+                        "type": "string"
+                      },
+                      {
+                        "name": "classCodeText",
+                        "type": "string"
+                      },
+                      {
+                        "name": "fundSource",
+                        "type": "string"
+                      },
+                      {
+                        "name": "fundSourceText",
+                        "type": "string"
+                      },
+                      {
+                        "name": "salesChannel",
+                        "type": "string"
+                      },
+                      {
+                        "name": "salChlText",
+                        "type": "string"
+                      },
+                      {
+                        "name": "salesProduct",
+                        "type": "string"
+                      },
+                      {
+                        "name": "salPrdText",
+                        "type": "string"
+                      },
+                      {
+                        "name": "preAllcObjid",
+                        "type": "string"
+                      },
+                      {
+                        "name": "preAllcText",
+                        "type": "string"
+                      },
+                      {
+                        "name": "crossRefId",
+                        "type": "string"
+                      },
+                      {
+                        "name": "shortName",
+                        "type": "string"
+                      },
+                      {
+                        "name": "manualAccTitle",
+                        "type": "string"
+                      },
+                      {
+                        "name": "accountTitle",
+                        "type": "string"
+                      },
+                      {
+                        "name": "cardAccess",
+                        "type": "string"
+                      },
+                      {
+                        "name": "edtsFlag",
+                        "type": "string"
+                      },
+                      {
+                        "name": "inCollections",
+                        "type": "string"
+                      },
+                      {
+                        "name": "phonCntctTdma",
+                        "type": "string"
+                      },
+                      {
+                        "name": "depIntType",
+                        "type": "string"
+                      },
+                      {
+                        "name": "packageCode",
+                        "type": "string"
+                      },
+                      {
+                        "name": "earlTranDate",
+                        "type": "string"
+                      },
+                      {
+                        "name": "macroSegment",
+                        "type": "string"
+                      },
+                      {
+                        "name": "bankStmtCopies",
+                        "type": "string"
+                      },
+                      {
+                        "name": "secondaryPoc",
+                        "type": "string"
+                      },
+                      {
+                        "name": "agentNumCheck",
+                        "type": "string"
+                      },
+                      {
+                        "name": "pstAllcDeptId",
+                        "type": "string"
+                      },
+                      {
+                        "name": "affiliate",
+                        "type": "string"
+                      },
+                      {
+                        "name": "altProductId",
+                        "type": "string"
+                      }
+                    ]
+                  }
+                },
+                {
+                  "name": "subCategory",
+                  "type": "string"
+                },
+                {
+                  "name": "addInfo1",
+                  "type": "string"
+                },
+                {
+                  "name": "addInfo2",
+                  "type": "string"
+                },
+                {
+                  "name": "addInfo3",
+                  "type": "string"
+                },
+                {
+                  "name": "crtUser",
+                  "type": "string"
+                },
+                {
+                  "name": "crtTimestamp",
+                  "type": "double"
+                },
+                {
+                  "name": "chgUser",
+                  "type": "string"
+                },
+                {
+                  "name": "chgTimestamp",
+                  "type": "double"
+                }
+              ]
+            }
+          },
+          {
+            "name": "corrAddressDetailResult",
+            "type": {
+              "type": "record",
+              "name": "cbadmStrCorrDataOp184",
+              "fields": [
+                {
+                  "name": "receivermgtdata",
+                  "type": {
+                    "type": "record",
+                    "name": "bapiStrAccCrBcrmCor194",
+                    "fields": [
+                      {
+                        "name": "corrVariant",
+                        "type": "string"
+                      },
+                      {
+                        "name": "corrRole",
+                        "type": "string"
+                      }
+                    ]
+                  }
+                },
+                {
+                  "name": "differentreceiver",
+                  "type": {
+                    "type": "record",
+                    "name": "bapiStrAccBcrmOri2205",
+                    "fields": [
+                      {
+                        "name": "receiverBupa",
+                        "type": "string"
+                      },
+                      {
+                        "name": "bupaRole",
+                        "type": "string"
+                      },
+                      {
+                        "name": "addrnumber",
+                        "type": "string"
+                      }
+                    ]
+                  }
+                },
+                {
+                  "name": "originalreceiver",
+                  "type": {
+                    "type": "record",
+                    "name": "bapiStrAccBcrmOri2216",
+                    "fields": [
+                      {
+                        "name": "receiverBupa",
+                        "type": "string"
+                      },
+                      {
+                        "name": "bupaRole",
+                        "type": "string"
+                      },
+                      {
+                        "name": "addrnumber",
+                        "type": "string"
+                      }
+                    ]
+                  }
+                },
+                {
+                  "name": "singlerecmgt",
+                  "type": [
+                    "null",
+                    {
+                      "type": "array",
+                      "items": {
+                        "type": "record",
+                        "name": "bapiStrAccBcrmSin2227",
+                        "fields": [
+                          {
+                            "name": "externalId",
+                            "type": "string"
+                          },
+                          {
+                            "name": "cotyp",
+                            "type": "string"
+                          },
+                          {
+                            "name": "receiverGroup",
+                            "type": "string"
+                          },
+                          {
+                            "name": "receiverBupa",
+                            "type": "string"
+                          },
+                          {
+                            "name": "bupaRole",
+                            "type": "string"
+                          },
+                          {
+                            "name": "documenttyp",
+                            "type": "string"
+                          },
+                          {
+                            "name": "corrVariant",
+                            "type": "string"
+                          },
+                          {
+                            "name": "corrRole",
+                            "type": "string"
+                          },
+                          {
+                            "name": "addrnumber",
+                            "type": "string"
+                          }
+                        ]
+                      }
+                    }
+                  ]
+                },
+                {
+                  "name": "extracorrdata",
+                  "type": [
+                    "null",
+                    {
+                      "type": "array",
+                      "items": {
+                        "type": "record",
+                        "name": "cbadmStrCorrDfmtGet243",
+                        "fields": [
+                          {
+                            "name": "zcorRecpnCatg",
+                            "type": "string"
+                          },
+                          {
+                            "name": "zcorExtnId",
+                            "type": "string"
+                          },
+                          {
+                            "name": "zcorCorrTyp",
+                            "type": "string"
+                          },
+                          {
+                            "name": "zcorDfRuleid",
+                            "type": "string"
+                          },
+                          {
+                            "name": "zcorNoOfCopys",
+                            "type": "string"
+                          }
+                        ]
+                      }
+                    }
+                  ]
+                },
+                {
+                  "name": "mailingtypedata",
+                  "type": [
+                    "null",
+                    {
+                      "type": "array",
+                      "items": {
+                        "type": "record",
+                        "name": "cbadmStrCorrMtitGet256",
+                        "fields": [
+                          {
+                            "name": "zcorRecpnCatg",
+                            "type": "string"
+                          },
+                          {
+                            "name": "zcorExtnId",
+                            "type": "string"
+                          },
+                          {
+                            "name": "zcorMailTitl1",
+                            "type": "string"
+                          },
+                          {
+                            "name": "zcorMailTitl2",
+                            "type": "string"
+                          },
+                          {
+                            "name": "zcorMailTittyp",
+                            "type": "string"
+                          }
+                        ]
+                      }
+                    }
+                  ]
+                },
+                {
+                  "name": "addcorrdata",
+                  "type": {
+                    "type": "record",
+                    "name": "cbadmStrCorrAcrtGet269",
+                    "fields": [
+                      {
+                        "name": "zcorAccRestr",
+                        "type": "string"
+                      },
+                      {
+                        "name": "zcorPrntPrity",
+                        "type": "string"
+                      },
+                      {
+                        "name": "zcorStmtIncycl",
+                        "type": "string"
+                      },
+                      {
+                        "name": "zcorStmOutcycl",
+                        "type": "string"
+                      }
+                    ]
+                  }
+                },
+                {
+                  "name": "eventualrept",
+                  "type": [
+                    "null",
+                    {
+                      "type": "array",
+                      "items": {
+                        "type": "record",
+                        "name": "cbadmStrEventualRecipient281",
+                        "fields": [
+                          {
+                            "name": "corRecpnCatg",
+                            "type": "string"
+                          },
+                          {
+                            "name": "corExtnId",
+                            "type": "string"
+                          },
+                          {
+                            "name": "corCorrTyp",
+                            "type": "string"
+                          },
+                          {
+                            "name": "corEventual",
+                            "type": "string"
+                          }
+                        ]
+                      }
+                    }
+                  ]
+                },
+                {
+                  "name": "overdraftData",
+                  "type": {
+                    "type": "record",
+                    "name": "cbadmBapiStrZodiDdGet293",
+                    "fields": [
+                      {
+                        "name": "zodiRegAcct",
+                        "type": "string"
+                      },
+                      {
+                        "name": "zodiNomBpId",
+                        "type": "string"
+                      },
+                      {
+                        "name": "zodiWeakAcct",
+                        "type": "string"
+                      },
+                      {
+                        "name": "zodiCrRiskRat",
+                        "type": "string"
+                      },
+                      {
+                        "name": "zodiLossDef",
+                        "type": "string"
+                      },
+                      {
+                        "name": "zodiProbDef",
+                        "type": "string"
+                      },
+                      {
+                        "name": "zodiModJudgmnt",
+                        "type": "string"
+                      }
+                    ]
+                  }
+                },
+                {
+                  "name": "corrList",
+                  "type": [
+                    "null",
+                    {
+                      "type": "array",
+                      "items": {
+                        "type": "record",
+                        "name": "cbadmStrCorrList308",
+                        "fields": [
+                          {
+                            "name": "corRecpnCatg",
+                            "type": "string"
+                          },
+                          {
+                            "name": "corExtnId",
+                            "type": "string"
+                          },
+                          {
+                            "name": "receiverBupa",
+                            "type": "string"
+                          },
+                          {
+                            "name": "bupaRole",
+                            "type": "string"
+                          },
+                          {
+                            "name": "addrnumber",
+                            "type": "string"
+                          },
+                          {
+                            "name": "corrVariant",
+                            "type": "string"
+                          },
+                          {
+                            "name": "corrRole",
+                            "type": "string"
+                          },
+                          {
+                            "name": "documenttyp",
+                            "type": "string"
+                          },
+                          {
+                            "name": "cotyp",
+                            "type": "string"
+                          },
+                          {
+                            "name": "zcorCorrTyp",
+                            "type": "string"
+                          },
+                          {
+                            "name": "zcorDfRuleid",
+                            "type": "string"
+                          },
+                          {
+                            "name": "zcorNoOfCopys",
+                            "type": "string"
+                          },
+                          {
+                            "name": "zcorMailTitl1",
+                            "type": "string"
+                          },
+                          {
+                            "name": "zcorMailTitl2",
+                            "type": "string"
+                          },
+                          {
+                            "name": "zcorMailTittyp",
+                            "type": "string"
+                          },
+                          {
+                            "name": "corEventual",
+                            "type": "string"
+                          }
+                        ]
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          }
+        ]
+      }
+    }
+  ]
+}

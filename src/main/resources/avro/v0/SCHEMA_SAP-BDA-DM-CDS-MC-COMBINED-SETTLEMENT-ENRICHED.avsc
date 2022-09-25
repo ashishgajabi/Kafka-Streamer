@@ -1,0 +1,624 @@
+{
+  "type": "record",
+  "name": "MasterContractCombinedSettlementFrequencyMessage",
+  "namespace": "au.com.cba.kafka.mc.combinedsettlement.v1",
+  "doc": "This schema is to support master contract combined settlement frequency events from SAP Banking",
+  "fields": [
+    {
+      "name": "header",
+      "type": {
+        "type": "record",
+        "name": "KafkaEventHeader",
+        "namespace": "au.com.cba.kafka.core.v1",
+        "fields": [
+          {
+            "name": "msgId",
+            "type": {
+              "type": "string",
+              "avro.java.string": "String"
+            }
+          },
+          {
+            "name": "correlationId",
+            "type": {
+              "type": "string",
+              "avro.java.string": "String"
+            }
+          },
+          {
+            "name": "processPath",
+            "type": [
+              "null",
+              {
+                "type": "array",
+                "items": {
+                  "type": "record",
+                  "name": "ProcessPathElement",
+                  "fields": [
+                    {
+                      "name": "source",
+                      "type": {
+                        "type": "string",
+                        "avro.java.string": "String"
+                      }
+                    },
+                    {
+                      "name": "timestamp",
+                      "type": {
+                        "type": "string",
+                        "avro.java.string": "String"
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "name": "createTimestamp",
+      "type": "string"
+    },
+    {
+      "name": "mccombsettlementdata",
+      "type": {
+        "type": "record",
+        "name": "cbaMcmStrCdsMcCombSetl0",
+        "fields": [
+          {
+            "name": "commonInformation",
+            "type": {
+              "type": "record",
+              "name": "cbaMcmStrCdsCommonData4098",
+              "fields": [
+                {
+                  "name": "mcAnchorData",
+                  "type": {
+                    "type": "record",
+                    "name": "cbaMcmStrCdsAnchor14037",
+                    "fields": [
+                      {
+                        "name":"internalAccountId",
+                        "type":"string"
+                      },
+                      {
+                        "name":"contractChangeTimestamp",
+                        "type":"string"
+                      },
+                      {
+                        "name":"validFrom",
+                        "type":"string"
+                      },
+                      {
+                        "name":"validTo",
+                        "type":"string"
+                      },
+                      {
+                        "name":"validToReal",
+                        "type":"string"
+                      },
+                      {
+                        "name":"contractBegin",
+                        "type":"string"
+                      },
+                      {
+                        "name":"contractPlannedEnd",
+                        "type":"string"
+                      },
+                      {
+                        "name":"contractActualEnd",
+                        "type":"string"
+                      },
+                      {
+                        "name":"contractProcessFrom",
+                        "type":"string"
+                      },
+                      {
+                        "name":"contractProductiveFrom",
+                        "type":"string"
+                      },
+                      {
+                        "name":"productIdInternal",
+                        "type":"string"
+                      },
+                      {
+                        "name":"productVersion",
+                        "type":"string"
+                      },
+                      {
+                        "name":"productCategory",
+                        "type":"string"
+                      },
+                      {
+                        "name":"accountCurrency",
+                        "type":"string"
+                      },
+                      {
+                        "name":"accountCurrencyIso",
+                        "type":"string"
+                      },
+                      {
+                        "name":"calenderKey1",
+                        "type":"string"
+                      },
+                      {
+                        "name":"calenderKey2",
+                        "type":"string"
+                      },
+                      {
+                        "name":"calenderKey3",
+                        "type":"string"
+                      },
+                      {
+                        "name":"status",
+                        "type":"string"
+                      },
+                      {
+                        "name":"tobeReleased",
+                        "type":"string"
+                      },
+                      {
+                        "name":"authGroup",
+                        "type":"string"
+                      },
+                      {
+                        "name":"userLastChange",
+                        "type":"string"
+                      },
+                      {
+                        "name":"changeBtcatg",
+                        "type":"string"
+                      },
+                      {
+                        "name":"migrationGroup",
+                        "type":"string"
+                      },
+                      {
+                        "name":"product",
+                        "type":"string"
+                      },
+                      {
+                        "name":"productdescr",
+                        "type":"string"
+                      }
+                    ]
+                  }
+                },
+                {
+                  "name":"mcExtNo",
+                  "type":"string"
+                },
+                {
+                  "name": "cbaExtension1",
+                  "type": {
+                    "type": "record",
+                    "name": "cbaDmStrCdsExtData122418",
+                    "fields": [
+                      {
+                        "name":"moo",
+                        "type":"string"
+                      },
+                      {
+                        "name":"acOpnRsnCode",
+                        "type":"string"
+                      },
+                      {
+                        "name":"isRelForRelat",
+                        "type":"string"
+                      },
+                      {
+                        "name":"acctUse",
+                        "type":"string"
+                      },
+                      {
+                        "name":"classCode",
+                        "type":"string"
+                      },
+                      {
+                        "name":"fundSource",
+                        "type":"string"
+                      },
+                      {
+                        "name":"salesChannel",
+                        "type":"string"
+                      },
+                      {
+                        "name":"salesProduct",
+                        "type":"string"
+                      },
+                      {
+                        "name":"preAllcObjid",
+                        "type":"string"
+                      },
+                      {
+                        "name":"crossRefId",
+                        "type":"string"
+                      },
+                      {
+                        "name":"shortName",
+                        "type":"string"
+                      },
+                      {
+                        "name":"manualAccTitle",
+                        "type":"string"
+                      },
+                      {
+                        "name":"accountTitle",
+                        "type":"string"
+                      },
+                      {
+                        "name":"cardAccess",
+                        "type":"string"
+                      },
+                      {
+                        "name":"edtsFlag",
+                        "type":"string"
+                      },
+                      {
+                        "name":"inCollections",
+                        "type":"string"
+                      },
+                      {
+                        "name":"phonCntctTdma",
+                        "type":"string"
+                      },
+                      {
+                        "name":"depIntType",
+                        "type":"string"
+                      },
+                      {
+                        "name":"packageCode",
+                        "type":"string"
+                      },
+                      {
+                        "name":"earlTranDate",
+                        "type":"string"
+                      },
+                      {
+                        "name":"macroSegment",
+                        "type":"string"
+                      },
+                      {
+                        "name":"bankStmtCopies",
+                        "type":"string"
+                      },
+                      {
+                        "name":"secondaryPoc",
+                        "type":"string"
+                      },
+                      {
+                        "name":"agentNumCheck",
+                        "type":"string"
+                      },
+                      {
+                        "name":"pstAllcDeptId",
+                        "type":"string"
+                      },
+                      {
+                        "name":"affiliate",
+                        "type":"string"
+                      },
+                      {
+                        "name":"altProductId",
+                        "type":"string"
+                      }
+                    ]
+                  }
+                },
+                {
+                  "name": "mcAddAttrResult",
+                  "type": {
+                    "type": "record",
+                    "name": "cbaMcmStrCdsMcZatr30672",
+                    "fields": [
+                      {
+                        "name":"zatrMcType",
+                        "type":"string"
+                      },
+                      {
+                        "name":"zatrMcName",
+                        "type":"string"
+                      },
+                      {
+                        "name":"zatrMcStatus",
+                        "type":"string"
+                      },
+                      {
+                        "name":"zatrMcStatusLastChanged",
+                        "type":"string"
+                      }
+                    ]
+                  }
+                },
+                {
+                  "name":"subCategory",
+                  "type":"string"
+                },
+                {
+                  "name":"addInfo1",
+                  "type":"string"
+                },
+                {
+                  "name":"addInfo2",
+                  "type":"string"
+                },
+                {
+                  "name":"addInfo3",
+                  "type":"string"
+                },
+                {
+                  "name":"crtUser",
+                  "type":"string"
+                },
+                {
+                  "name":"crtTimestamp",
+                  "type":"string"
+                },
+                {
+                  "name":"chgUser",
+                  "type":"string"
+                },
+                {
+                  "name":"chgTimestamp",
+                  "type":"string"
+                }
+              ]
+            }
+          },
+          {
+            "name": "combSetlResult",
+            "type": {
+              "type": "record",
+              "name": "cbaDmStrCdsMcCombsetRes35037",
+              "fields": [
+                {
+                  "name": "tracks",
+                  "type": [
+                    "null",
+                    {
+                      "type": "array",
+                      "items": {
+                        "type": "record",
+                        "name": "cbaMcmStrCdsMcCsTrackD40895",
+                        "fields": [
+                          {
+                            "name":"bprTrackId",
+                            "type":"string"
+                          },
+                          {
+                            "name":"bprType",
+                            "type":"string"
+                          },
+                          {
+                            "name":"compensationCalcBase",
+                            "type":"string"
+                          },
+                          {
+                            "name":"limitCatg",
+                            "type":"string"
+                          },
+                          {
+                            "name":"currencyTranslationCatg",
+                            "type":"string"
+                          },
+                          {
+                            "name":"deltaCalculationCatg",
+                            "type":"string"
+                          },
+                          {
+                            "name":"accountPostingCatg",
+                            "type":"string"
+                          },
+                          {
+                            "name":"compensationRatioIndicator",
+                            "type":"string"
+                          },
+                          {
+                            "name":"allocationCatg",
+                            "type":"string"
+                          },
+                          {
+                            "name":"calculationStartDate",
+                            "type":"string"
+                          },
+                          {
+                            "name":"nettoPosting",
+                            "type":"string"
+                          },
+                          {
+                            "name":"notPosting",
+                            "type":"string"
+                          },
+                          {
+                            "name":"collectivePosting",
+                            "type":"string"
+                          },
+                          {
+                            "name":"conditionTypeOffsetMeth",
+                            "type":"string"
+                          },
+                          {
+                            "name":"interIntercompanyloansCatg",
+                            "type":"string"
+                          },
+                          {
+                            "name":"flagCorrespondence",
+                            "type":"string"
+                          },
+                          {
+                            "name":"period",
+                            "type":"string"
+                          },
+                          {
+                            "name":"periodUnit",
+                            "type":"string"
+                          },
+                          {
+                            "name":"weekdayMonday",
+                            "type":"string"
+                          },
+                          {
+                            "name":"weekdayTuesday",
+                            "type":"string"
+                          },
+                          {
+                            "name":"weekdayWednesday",
+                            "type":"string"
+                          },
+                          {
+                            "name":"weekdayThursday",
+                            "type":"string"
+                          },
+                          {
+                            "name":"weekdayFriday",
+                            "type":"string"
+                          },
+                          {
+                            "name":"weekdaySaturday",
+                            "type":"string"
+                          },
+                          {
+                            "name":"weekdaySunday",
+                            "type":"string"
+                          },
+                          {
+                            "name":"weekdayShiftEnd",
+                            "type":"string"
+                          },
+                          {
+                            "name":"weekdayShiftNo",
+                            "type":"long"
+                          },
+                          {
+                            "name":"weekdayShift",
+                            "type":"string"
+                          },
+                          {
+                            "name":"baseDate",
+                            "type":"string"
+                          },
+                          {
+                            "name":"dueDateIsWorkingday",
+                            "type":"string"
+                          },
+                          {
+                            "name":"daytype",
+                            "type":"string"
+                          },
+                          {
+                            "name":"ihbOffsettingPostingCatg",
+                            "type":"string"
+                          }
+                        ]
+                      }
+                    }
+                  ]
+                },
+                {
+                  "name": "perioddays",
+                  "type": [
+                    "null",
+                    {
+                      "type": "array",
+                      "items": {
+                        "type": "record",
+                        "name": "cbaMcmStrCdsBccsPerDayd58894",
+                        "fields": [
+                          {
+                            "name":"bprTrackId",
+                            "type":"string"
+                          },
+                          {
+                            "name":"bprType",
+                            "type":"string"
+                          },
+                          {
+                            "name":"monthnr",
+                            "type":"string"
+                          },
+                          {
+                            "name":"daynr",
+                            "type":"string"
+                          },
+                          {
+                            "name":"time",
+                            "type":"string"
+                          }
+                        ]
+                      }
+                    }
+                  ]
+                },
+                {
+                  "name": "settlementdates",
+                  "type": [
+                    "null",
+                    {
+                      "type": "array",
+                      "items": {
+                        "type": "record",
+                        "name": "cbaMcmStrCdsSchSchdrR2965308",
+                        "fields": [
+                          {
+                            "name":"trackId",
+                            "type":"string"
+                          },
+                          {
+                            "name":"type",
+                            "type":"string"
+                          },
+                          {
+                            "name":"prodInt",
+                            "type":"string"
+                          },
+                          {
+                            "name":"bpare",
+                            "type":"string"
+                          },
+                          {
+                            "name":"dueDate",
+                            "type":"string"
+                          },
+                          {
+                            "name":"endDate",
+                            "type":"string"
+                          },
+                          {
+                            "name":"lastsettlDate",
+                            "type":"string"
+                          },
+                          {
+                            "name":"glDate",
+                            "type":"string"
+                          },
+                          {
+                            "name":"backvalueDate",
+                            "type":"string"
+                          },
+                          {
+                            "name":"valueEndDate",
+                            "type":"string"
+                          },
+                          {
+                            "name":"periodCorr",
+                            "type":"string"
+                          },
+                          {
+                            "name":"noNewCalc",
+                            "type":"string"
+                          }
+                        ]
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          }
+        ]
+      }
+    }
+  ]
+}

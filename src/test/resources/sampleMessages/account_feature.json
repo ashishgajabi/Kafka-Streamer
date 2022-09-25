@@ -1,0 +1,133 @@
+{
+  "header": {
+    "msgId": "35DF4C3E545A1EDCA98A8E7708EC690B",
+    "correlationId": "5B549F524A5E1EEBABAA00505694126D",
+    "processPath": null
+  },
+  "createTimestamp": "2022-03-15T11:20:39.5724980Z",
+  "FeatData": {
+    "commonInformation": {
+      "contractDetailResult": {
+        "accountData": {
+          "internalAccountId": "9E44AD3D945A1EDCA98A8E7708EC690B",
+          "accountChangeTimestamp": "            0.0000000",
+          "validFrom": "    19010101120000",
+          "validTo": "    99991231235959",
+          "validToReal": "    99991231235959",
+          "accountNumber": "99979709",
+          "bankCountry": "AU",
+          "bankCountryIso": "AU",
+          "bankCode": "067990",
+          "accountCurrency": "",
+          "accountCurrencyIso": "",
+          "accountUsage": "",
+          "checkDigitCalculation": "",
+          "userLastChange": "",
+          "changeBtcatg": "CNAC01",
+          "tobeReleased": "",
+          "iban": ""
+        },
+        "accountAnchorData": {
+          "internalAccountId": "9E44AD3D945A1EDCA98A8E7708EC690B",
+          "contractChangeTimestamp": "            0.0000000",
+          "validFrom": "    19010101120000",
+          "validTo": "    99991231235959",
+          "validToReal": "    99991231235959",
+          "contractBegin": "    20541030120000",
+          "contractPlannedEnd": "                 0",
+          "contractActualEnd": "                 0",
+          "contractProcessFrom": "                 0",
+          "contractProductiveFrom": "                 0",
+          "productIdInternal": "/CBA/     00000020",
+          "productVersion": "0034",
+          "productCategory": "0002",
+          "accountCurrency": "AUD",
+          "accountCurrencyIso": "AUD",
+          "calenderKey1": "AU",
+          "calenderKey2": "",
+          "calenderKey3": "",
+          "status": "30",
+          "tobeReleased": "",
+          "authGroup": "",
+          "userLastChange": "",
+          "changeBtcatg": "CNAC01",
+          "migrationGroup": "",
+          "product": "000052",
+          "productdescr": "Term Deposit"
+        },
+        "contractPurposeData": {
+          "contractPurpose": "",
+          "language": "",
+          "languageIso": "",
+          "validFrom": "                 0",
+          "validTo": "                 0",
+          "creationReferenceId": "",
+          "creationReferenceScheme": "",
+          "creationReferenceAgency": "",
+          "creationProductId": "",
+          "creationProductScheme": "",
+          "creationProductAgency": "",
+          "salesContractRef": ""
+        },
+        "contractDesc": "HOMER M, MARGE M SIMPSONS1",
+        "activityStatus": {
+          "activityStatus": "00",
+          "actStatusDesc": "Active",
+          "propertyCode": "0002"
+        }
+      },
+      "cbaExtension1": {
+        "moo": "01",
+        "acOpnRsnCode": "",
+        "isRelForRelat": "X",
+        "acctUse": "0000",
+        "acctUseText": "Ordinary Accounts - All Account Owns are Persons",
+        "classCode": "0162",
+        "classCodeText": "Cotton Growing",
+        "fundSource": "",
+        "fundSourceText": "",
+        "salesChannel": "STANDARD_BRANCH",
+        "salChlText": "CommSee",
+        "salesProduct": "000010",
+        "salPrdText": "Standard Term Deposit",
+        "preAllcObjid": "50000051",
+        "preAllcText": "B011 - BA Decomm (Plz donot use)",
+        "crossRefId": "",
+        "shortName": "TESTR4 S",
+        "manualAccTitle": "X",
+        "accountTitle": "SUN TESTR4",
+        "cardAccess": "",
+        "edtsFlag": "",
+        "inCollections": "",
+        "phonCntctTdma": "",
+        "depIntType": "",
+        "packageCode": "",
+        "earlTranDate": "",
+        "macroSegment": "NS",
+        "bankStmtCopies": "",
+        "secondaryPoc": "",
+        "agentNumCheck": "",
+        "pstAllcDeptId": "012099",
+        "affiliate": "CB001",
+        "altProductId": ""
+      },
+      "subCategory": "0701",
+      "addInfo1": "",
+      "addInfo2": "",
+      "addInfo3": "",
+      "crtUser": "RATHINNA",
+      "crtTimestamp": "20220315112038.7004750",
+      "chgUser": "",
+      "chgTimestamp": ""
+    },
+    "featuredataResult": {
+      "array": [
+        {
+          "zfeaFeatureId": "200012",
+          "zfeaFeatureDescr": "CR Interest Redirection CBA",
+          "zfeaChargeFrm": "20541030"
+        }
+      ]
+    }
+  }
+}

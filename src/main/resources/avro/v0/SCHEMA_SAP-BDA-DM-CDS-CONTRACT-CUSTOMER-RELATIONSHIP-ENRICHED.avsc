@@ -1,0 +1,372 @@
+{
+  "type": "record",
+  "name": "ContractBusinessPartnerRelationship",
+  "namespace": "au.com.cba.kafka.contract.bp.relationship",
+  "doc": "Schema to support Customer to Business Partner Relationship",
+  "fields": [
+    {
+      "name": "header",
+      "type": {
+        "type": "record",
+        "name": "KafkaEventHeader",
+        "namespace": "au.com.cba.kafka.core.v1",
+        "fields": [
+          {
+            "name": "msgId",
+            "type": {
+              "type": "string",
+              "avro.java.string": "String"
+            }
+          },
+          {
+            "name": "correlationId",
+            "type": {
+              "type": "string",
+              "avro.java.string": "String"
+            }
+          },
+          {
+            "name": "processPath",
+            "type": [
+              "null",
+              {
+                "type": "array",
+                "items": {
+                  "type": "record",
+                  "name": "ProcessPathElement",
+                  "fields": [
+                    {
+                      "name": "source",
+                      "type": {
+                        "type": "string",
+                        "avro.java.string": "String"
+                      }
+                    },
+                    {
+                      "name": "timestamp",
+                      "type": {
+                        "type": "string",
+                        "avro.java.string": "String"
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "name": "createTimestamp",
+      "type": "string"
+    },
+    {
+      "name": "contCustRel",
+      "type": {
+        "type": "record",
+        "name": "cbaDmStrCdsCnbprel0",
+        "fields": [
+          {
+            "name":"contractInt",
+            "type":"string"
+          },
+          {
+            "name": "contractCustRel",
+            "type": {
+              "type": "record",
+              "name": "cbaDmStrCdsCnbprelChang33597",
+              "fields": [
+                {
+                  "name": "adminData",
+                  "type": {
+                    "type": "record",
+                    "name": "cbaDmStrCdsCnbprelAdmin10336",
+                    "fields": [
+                      {
+                        "name":"subCategory",
+                        "type":"string"
+                      },
+                      {
+                        "name":"addInfo1",
+                        "type":"string"
+                      },
+                      {
+                        "name":"addInfo2",
+                        "type":"string"
+                      },
+                      {
+                        "name":"addInfo3",
+                        "type":"string"
+                      },
+                      {
+                        "name":"crtUser",
+                        "type":"string"
+                      },
+                      {
+                        "name":"crtTimestamp",
+                        "type":"string"
+                      },
+                      {
+                        "name":"activity",
+                        "type":"string"
+                      }
+                    ]
+                  }
+                },
+                {
+                  "name": "sapAccount",
+                  "type": {
+                    "type": "record",
+                    "name": "cbaDmStrCdsActidntOutap315751",
+                    "fields": [
+                      {
+                        "name":"accountNumber",
+                        "type":"string"
+                      },
+                      {
+                        "name":"bankCountry",
+                        "type":"string"
+                      },
+                      {
+                        "name":"bankCode",
+                        "type":"string"
+                      },
+                      {
+                        "name":"currency",
+                        "type":"string"
+                      },
+                      {
+                        "name":"lcycleStatus",
+                        "type":"string"
+                      },
+                      {
+                        "name":"product",
+                        "type":"string"
+                      },
+                      {
+                        "name":"salesProduct",
+                        "type":"string"
+                      },
+                      {
+                        "name":"openingDate",
+                        "type":"string"
+                      },
+                      {
+                        "name":"closureDate",
+                        "type":"string"
+                      }
+                    ]
+                  }
+                },
+                {
+                  "name": "masterContract",
+                  "type": {
+                    "type": "record",
+                    "name": "cbaDmStrCdsAcpoolOutapi326121",
+                    "fields": [
+                      {
+                        "name":"mcNumber",
+                        "type":"string"
+                      },
+                      {
+                        "name":"currency",
+                        "type":"string"
+                      },
+                      {
+                        "name":"product",
+                        "type":"string"
+                      },
+                      {
+                        "name":"mcType",
+                        "type":"string"
+                      },
+                      {
+                        "name":"mcName",
+                        "type":"string"
+                      },
+                      {
+                        "name":"mcStatus",
+                        "type":"string"
+                      },
+                      {
+                        "name":"salesProduct",
+                        "type":"string"
+                      },
+                      {
+                        "name":"openingDate",
+                        "type":"string"
+                      },
+                      {
+                        "name":"closureDate",
+                        "type":"string"
+                      },
+                      {
+                        "name":"lcycleStatus",
+                        "type":"string"
+                      }
+                    ]
+                  }
+                },
+                {
+                  "name": "nonSapAccount",
+                  "type": {
+                    "type": "record",
+                    "name": "cbaDmStrCdsNsapAcoutapi330338",
+                    "fields": [
+                      {
+                        "name":"applicationType",
+                        "type":"string"
+                      },
+                      {
+                        "name":"bankCountry",
+                        "type":"string"
+                      },
+                      {
+                        "name":"bankNumber",
+                        "type":"string"
+                      },
+                      {
+                        "name":"accountNumber",
+                        "type":"string"
+                      },
+                      {
+                        "name":"lcycleStatus",
+                        "type":"string"
+                      },
+                      {
+                        "name":"productId",
+                        "type":"string"
+                      },
+                      {
+                        "name":"openingDate",
+                        "type":"string"
+                      },
+                      {
+                        "name":"closureDate",
+                        "type":"string"
+                      },
+                      {
+                        "name":"titleName",
+                        "type":"string"
+                      },
+                      {
+                        "name":"shortName",
+                        "type":"string"
+                      }
+                    ]
+                  }
+                },
+                {
+                  "name": "nonSapAccess",
+                  "type": {
+                    "type": "record",
+                    "name": "cbaDmStrCdsNsapAcsoutap336455",
+                    "fields": [
+                      {
+                        "name":"applicationType",
+                        "type":"string"
+                      },
+                      {
+                        "name":"accessType",
+                        "type":"string"
+                      },
+                      {
+                        "name":"cardType",
+                        "type":"string"
+                      },
+                      {
+                        "name":"accessNumber",
+                        "type":"string"
+                      }
+                    ]
+                  }
+                },
+                {
+                  "name": "role",
+                  "type": [
+                    "null",
+                    {
+                      "type": "array",
+                      "items": {
+                        "type": "record",
+                        "name": "cbaDmStrCdsMdOutAp341757",
+                        "fields": [
+                          {
+                            "name":"partner",
+                            "type":"string"
+                          },
+                          {
+                            "name":"cifId",
+                            "type":"string"
+                          },
+                          {
+                            "name":"validFrom",
+                            "type":"string"
+                          },
+                          {
+                            "name":"validTo",
+                            "type":"string"
+                          },
+                          {
+                            "name":"role",
+                            "type":"string"
+                          },
+                          {
+                            "name":"houseLoanSqNo",
+                            "type":"string"
+                          },
+                          {
+                            "name":"type",
+                            "type":"string"
+                          },
+                          {
+                            "name":"zcorRecpnCatg",
+                            "type":"string"
+                          },
+                          {
+                            "name":"bpkind",
+                            "type":"string"
+                          },
+                          {
+                            "name": "address",
+                            "type": {
+                              "type": "record",
+                              "name": "cbaDmStrCdsMdAddress66128",
+                              "fields": [
+                                {
+                                  "name":"addrnumber",
+                                  "type":"string"
+                                },
+                                {
+                                  "name":"mailTitle1",
+                                  "type":"string"
+                                },
+                                {
+                                  "name":"mailTitle2",
+                                  "type":"string"
+                                },
+                                {
+                                  "name":"validFrom",
+                                  "type":"string"
+                                },
+                                {
+                                  "name":"validTo",
+                                  "type":"string"
+                                }
+                              ]
+                            }
+                          }
+                        ]
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          }
+        ]
+      }
+    }
+  ]
+}

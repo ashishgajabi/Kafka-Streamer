@@ -1,0 +1,991 @@
+{
+  "type": "record",
+  "name": "AccountKeyFiguresMessage",
+  "namespace": "au.com.cba.kafka.account.keyfigures.v1",
+  "doc": "This schema is to support account key figures information from SAP Banking",
+  "fields": [
+    {
+      "name": "header",
+      "type": {
+        "type": "record",
+        "name": "KafkaEventHeader",
+        "namespace": "au.com.cba.kafka.core.v1",
+        "fields": [
+          {
+            "name": "msgId",
+            "type": {
+              "type": "string",
+              "avro.java.string": "String"
+            }
+          },
+          {
+            "name": "correlationId",
+            "type": {
+              "type": "string",
+              "avro.java.string": "String"
+            }
+          },
+          {
+            "name": "processPath",
+            "type": [
+              "null",
+              {
+                "type": "array",
+                "items": {
+                  "type": "record",
+                  "name": "ProcessPathElement",
+                  "fields": [
+                    {
+                      "name": "source",
+                      "type": {
+                        "type": "string",
+                        "avro.java.string": "String"
+                      }
+                    },
+                    {
+                      "name": "timestamp",
+                      "type": {
+                        "type": "string",
+                        "avro.java.string": "String"
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "name": "createTimestamp",
+      "type": "string"
+    },
+    {
+      "name": "kfigdata",
+      "type": {
+        "type": "record",
+        "name": "cbaDmStrCdsAcctKeyfigure0",
+        "fields": [
+          {
+            "name": "commonInformation",
+            "type": {
+              "type": "record",
+              "name": "cbaDmStrCdsCommonData3926",
+              "fields": [
+                {
+                  "name": "contractDetailResult",
+                  "type": {
+                    "type": "record",
+                    "name": "cbaDmStrCdsCndataopR33110241",
+                    "fields": [
+                      {
+                        "name": "accountData",
+                        "type": {
+                          "type": "record",
+                          "name": "cbaDmStrCdsBapiAccamCn116223",
+                          "fields": [
+                            {
+                              "name":"internalAccountId",
+                              "type":"string"
+                            },
+                            {
+                              "name":"accountChangeTimestamp",
+                              "type":"string"
+                            },
+                            {
+                              "name":"validFrom",
+                              "type":"string"
+                            },
+                            {
+                              "name":"validTo",
+                              "type":"string"
+                            },
+                            {
+                              "name":"validToReal",
+                              "type":"string"
+                            },
+                            {
+                              "name":"accountNumber",
+                              "type":"string"
+                            },
+                            {
+                              "name":"bankCountry",
+                              "type":"string"
+                            },
+                            {
+                              "name":"bankCountryIso",
+                              "type":"string"
+                            },
+                            {
+                              "name":"bankCode",
+                              "type":"string"
+                            },
+                            {
+                              "name":"accountCurrency",
+                              "type":"string"
+                            },
+                            {
+                              "name":"accountCurrencyIso",
+                              "type":"string"
+                            },
+                            {
+                              "name":"accountUsage",
+                              "type":"string"
+                            },
+                            {
+                              "name":"checkDigitCalculation",
+                              "type":"string"
+                            },
+                            {
+                              "name":"userLastChange",
+                              "type":"string"
+                            },
+                            {
+                              "name":"changeBtcatg",
+                              "type":"string"
+                            },
+                            {
+                              "name":"tobeReleased",
+                              "type":"string"
+                            },
+                            {
+                              "name":"iban",
+                              "type":"string"
+                            }
+                          ]
+                        }
+                      },
+                      {
+                        "name": "accountAnchorData",
+                        "type": {
+                          "type": "record",
+                          "name": "cbaDmStrCdsAccAnchrDat124212",
+                          "fields": [
+                            {
+                              "name":"internalAccountId",
+                              "type":"string"
+                            },
+                            {
+                              "name":"contractChangeTimestamp",
+                              "type":"string"
+                            },
+                            {
+                              "name":"validFrom",
+                              "type":"string"
+                            },
+                            {
+                              "name":"validTo",
+                              "type":"string"
+                            },
+                            {
+                              "name":"validToReal",
+                              "type":"string"
+                            },
+                            {
+                              "name":"contractBegin",
+                              "type":"string"
+                            },
+                            {
+                              "name":"contractPlannedEnd",
+                              "type":"string"
+                            },
+                            {
+                              "name":"contractActualEnd",
+                              "type":"string"
+                            },
+                            {
+                              "name":"contractProcessFrom",
+                              "type":"string"
+                            },
+                            {
+                              "name":"contractProductiveFrom",
+                              "type":"string"
+                            },
+                            {
+                              "name":"productIdInternal",
+                              "type":"string"
+                            },
+                            {
+                              "name":"productVersion",
+                              "type":"string"
+                            },
+                            {
+                              "name":"productCategory",
+                              "type":"string"
+                            },
+                            {
+                              "name":"accountCurrency",
+                              "type":"string"
+                            },
+                            {
+                              "name":"accountCurrencyIso",
+                              "type":"string"
+                            },
+                            {
+                              "name":"calenderKey1",
+                              "type":"string"
+                            },
+                            {
+                              "name":"calenderKey2",
+                              "type":"string"
+                            },
+                            {
+                              "name":"calenderKey3",
+                              "type":"string"
+                            },
+                            {
+                              "name":"status",
+                              "type":"string"
+                            },
+                            {
+                              "name":"tobeReleased",
+                              "type":"string"
+                            },
+                            {
+                              "name":"authGroup",
+                              "type":"string"
+                            },
+                            {
+                              "name":"userLastChange",
+                              "type":"string"
+                            },
+                            {
+                              "name":"changeBtcatg",
+                              "type":"string"
+                            },
+                            {
+                              "name":"migrationGroup",
+                              "type":"string"
+                            },
+                            {
+                              "name":"product",
+                              "type":"string"
+                            },
+                            {
+                              "name":"productdescr",
+                              "type":"string"
+                            }
+                          ]
+                        }
+                      },
+                      {
+                        "name": "contractPurposeData",
+                        "type": {
+                          "type": "record",
+                          "name": "cbaDmStrCdsBapiBcaP132598",
+                          "fields": [
+                            {
+                              "name":"contractPurpose",
+                              "type":"string"
+                            },
+                            {
+                              "name":"language",
+                              "type":"string"
+                            },
+                            {
+                              "name":"languageIso",
+                              "type":"string"
+                            },
+                            {
+                              "name":"validFrom",
+                              "type":"string"
+                            },
+                            {
+                              "name":"validTo",
+                              "type":"string"
+                            },
+                            {
+                              "name":"creationReferenceId",
+                              "type":"string"
+                            },
+                            {
+                              "name":"creationReferenceScheme",
+                              "type":"string"
+                            },
+                            {
+                              "name":"creationReferenceAgency",
+                              "type":"string"
+                            },
+                            {
+                              "name":"creationProductId",
+                              "type":"string"
+                            },
+                            {
+                              "name":"creationProductScheme",
+                              "type":"string"
+                            },
+                            {
+                              "name":"creationProductAgency",
+                              "type":"string"
+                            },
+                            {
+                              "name":"salesContractRef",
+                              "type":"string"
+                            }
+                          ]
+                        }
+                      },
+                      {
+                        "name":"contractDesc",
+                        "type":"string"
+                      },
+                      {
+                        "name": "activityStatus",
+                        "type": {
+                          "type": "record",
+                          "name": "cbaDmStrCdsActiviStData38820",
+                          "fields": [
+                            {
+                              "name":"activityStatus",
+                              "type":"string"
+                            },
+                            {
+                              "name":"actStatusDesc",
+                              "type":"string"
+                            },
+                            {
+                              "name":"propertyCode",
+                              "type":"string"
+                            }
+                          ]
+                        }
+                      }
+                    ]
+                  }
+                },
+                {
+                  "name": "cbaExtension1",
+                  "type": {
+                    "type": "record",
+                    "name": "cbaDmStrCdsExtData44577",
+                    "fields": [
+                      {
+                        "name":"moo",
+                        "type":"string"
+                      },
+                      {
+                        "name":"acOpnRsnCode",
+                        "type":"string"
+                      },
+                      {
+                        "name":"isRelForRelat",
+                        "type":"string"
+                      },
+                      {
+                        "name":"acctUse",
+                        "type":"string"
+                      },
+                      {
+                        "name":"acctUseText",
+                        "type":"string"
+                      },
+                      {
+                        "name":"classCode",
+                        "type":"string"
+                      },
+                      {
+                        "name":"classCodeText",
+                        "type":"string"
+                      },
+                      {
+                        "name":"fundSource",
+                        "type":"string"
+                      },
+                      {
+                        "name":"fundSourceText",
+                        "type":"string"
+                      },
+                      {
+                        "name":"salesChannel",
+                        "type":"string"
+                      },
+                      {
+                        "name":"salChlText",
+                        "type":"string"
+                      },
+                      {
+                        "name":"salesProduct",
+                        "type":"string"
+                      },
+                      {
+                        "name":"salPrdText",
+                        "type":"string"
+                      },
+                      {
+                        "name":"preAllcObjid",
+                        "type":"string"
+                      },
+                      {
+                        "name":"preAllcText",
+                        "type":"string"
+                      },
+                      {
+                        "name":"crossRefId",
+                        "type":"string"
+                      },
+                      {
+                        "name":"shortName",
+                        "type":"string"
+                      },
+                      {
+                        "name":"manualAccTitle",
+                        "type":"string"
+                      },
+                      {
+                        "name":"accountTitle",
+                        "type":"string"
+                      },
+                      {
+                        "name":"cardAccess",
+                        "type":"string"
+                      },
+                      {
+                        "name":"edtsFlag",
+                        "type":"string"
+                      },
+                      {
+                        "name":"inCollections",
+                        "type":"string"
+                      },
+                      {
+                        "name":"phonCntctTdma",
+                        "type":"string"
+                      },
+                      {
+                        "name":"depIntType",
+                        "type":"string"
+                      },
+                      {
+                        "name":"packageCode",
+                        "type":"string"
+                      },
+                      {
+                        "name":"earlTranDate",
+                        "type":"string"
+                      },
+                      {
+                        "name":"macroSegment",
+                        "type":"string"
+                      },
+                      {
+                        "name":"bankStmtCopies",
+                        "type":"string"
+                      },
+                      {
+                        "name":"secondaryPoc",
+                        "type":"string"
+                      },
+                      {
+                        "name":"agentNumCheck",
+                        "type":"string"
+                      },
+                      {
+                        "name":"pstAllcDeptId",
+                        "type":"string"
+                      },
+                      {
+                        "name":"affiliate",
+                        "type":"string"
+                      },
+                      {
+                        "name":"altProductId",
+                        "type":"string"
+                      }
+                    ]
+                  }
+                },
+                {
+                  "name":"subCategory",
+                  "type":"string"
+                },
+                {
+                  "name":"addInfo1",
+                  "type":"string"
+                },
+                {
+                  "name":"addInfo2",
+                  "type":"string"
+                },
+                {
+                  "name":"addInfo3",
+                  "type":"string"
+                },
+                {
+                  "name":"crtUser",
+                  "type":"string"
+                },
+                {
+                  "name":"crtTimestamp",
+                  "type":"string"
+                },
+                {
+                  "name":"chgUser",
+                  "type":"string"
+                },
+                {
+                  "name":"chgTimestamp",
+                  "type":"string"
+                }
+              ]
+            }
+          },
+          {
+            "name": "retrieveKeyFigResult",
+            "type": {
+              "type": "record",
+              "name": "cbaDmStrCdsRetKeyfig55997",
+              "fields": [
+                {
+                  "name": "accountkeyfigures",
+                  "type": {
+                    "type": "record",
+                    "name": "cbaDmStrCdsAcctKeyFig61186",
+                    "fields": [
+                      {
+                        "name":"cnCurrency",
+                        "type":"string"
+                      },
+                      {
+                        "name":"cnCurrencyIso",
+                        "type":"string"
+                      },
+                      {
+                        "name":"balance",
+                        "type":"double"
+                      },
+                      {
+                        "name":"balanceCurr",
+                        "type":"string"
+                      },
+                      {
+                        "name":"balSubfp",
+                        "type":"double"
+                      },
+                      {
+                        "name":"balSubfpCurr",
+                        "type":"string"
+                      },
+                      {
+                        "name":"balPif",
+                        "type":"double"
+                      },
+                      {
+                        "name":"balPifCurr",
+                        "type":"string"
+                      },
+                      {
+                        "name":"balPrenote",
+                        "type":"double"
+                      },
+                      {
+                        "name":"balPrenoteCurr",
+                        "type":"string"
+                      },
+                      {
+                        "name":"totalLimitAmount",
+                        "type":"double"
+                      },
+                      {
+                        "name":"totalLimitAmountCurr",
+                        "type":"string"
+                      },
+                      {
+                        "name":"avlbAmount",
+                        "type":"double"
+                      },
+                      {
+                        "name":"avlbAmountCurr",
+                        "type":"string"
+                      },
+                      {
+                        "name":"tolAmount",
+                        "type":"double"
+                      },
+                      {
+                        "name":"tolAmountCurr",
+                        "type":"string"
+                      },
+                      {
+                        "name":"minimumDeposit",
+                        "type":"double"
+                      },
+                      {
+                        "name":"minimumDepositCurr",
+                        "type":"string"
+                      },
+                      {
+                        "name": "loanKeyFig",
+                        "type": {
+                          "type": "record",
+                          "name": "cbaLmStrCdsLnKeyfigR3570823",
+                          "fields": [
+                            {
+                              "name":"redrawBal",
+                              "type":"double"
+                            },
+                            {
+                              "name":"redrawBalCurr",
+                              "type":"string"
+                            },
+                            {
+                              "name":"disbObligation",
+                              "type":"double"
+                            },
+                            {
+                              "name":"disbObligationCurr",
+                              "type":"string"
+                            },
+                            {
+                              "name": "capitals",
+                              "type": [
+                                "null",
+                                {
+                                  "type": "array",
+                                  "items": {
+                                    "type": "record",
+                                    "name": "cbaLmStrCdsBcaCapitaR3577239",
+                                    "fields": [
+                                      {
+                                        "name":"xCapital",
+                                        "type":"string"
+                                      },
+                                      {
+                                        "name":"sCapitalRequ",
+                                        "type":"string"
+                                      },
+                                      {
+                                        "name":"sCapitalCurr",
+                                        "type":"string"
+                                      },
+                                      {
+                                        "name":"aCapitalAmt",
+                                        "type":"double"
+                                      },
+                                      {
+                                        "name":"sCapitalStatus",
+                                        "type":"string"
+                                      },
+                                      {
+                                        "name":"sCapitalNochange",
+                                        "type":"string"
+                                      }
+                                    ]
+                                  }
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      },
+                      {
+                        "name":"lastRelTmsp",
+                        "type":"string"
+                      },
+                      {
+                        "name":"lastCimtTmsp",
+                        "type":"string"
+                      },
+                      {
+                        "name":"lcoldate",
+                        "type":"string"
+                      },
+                      {
+                        "name":"lpostdate",
+                        "type":"string"
+                      },
+                      {
+                        "name":"lastInfoTmsp",
+                        "type":"string"
+                      }
+                    ]
+                  }
+                },
+                {
+                  "name":"utilisedLimit",
+                  "type":"double"
+                },
+                {
+                  "name":"utilisedLimitCurr",
+                  "type":"string"
+                },
+                {
+                  "name":"unutilisedLimit",
+                  "type":"double"
+                },
+                {
+                  "name":"unutilisedLimitCurr",
+                  "type":"string"
+                },
+                {
+                  "name":"postingDate",
+                  "type":"string"
+                },
+                {
+                  "name":"postingdateBalance",
+                  "type":"double"
+                },
+                {
+                  "name":"postingdateBalanceCurr",
+                  "type":"string"
+                },
+                {
+                  "name":"valuedateBalance",
+                  "type":"double"
+                },
+                {
+                  "name":"valuedateBalanceCurr",
+                  "type":"string"
+                }
+              ]
+            }
+          },
+          {
+            "name": "simulatedSettlementResult",
+            "type": {
+              "type": "record",
+              "name": "cbaDmStrCdsSimSettle84121",
+              "fields": [
+                {
+                  "name":"settlementDate",
+                  "type":"string"
+                },
+                {
+                  "name": "acctsettleHeader",
+                  "type": [
+                    "null",
+                    {
+                      "type": "array",
+                      "items": {
+                        "type": "record",
+                        "name": "cbaDmStrCdsActstleHdR3590221",
+                        "fields": [
+                          {
+                            "name":"bankCountry",
+                            "type":"string"
+                          },
+                          {
+                            "name":"bankCountryIso",
+                            "type":"string"
+                          },
+                          {
+                            "name":"bankCode",
+                            "type":"string"
+                          },
+                          {
+                            "name":"accountNumber",
+                            "type":"string"
+                          },
+                          {
+                            "name":"iban",
+                            "type":"string"
+                          },
+                          {
+                            "name":"accountCurrency",
+                            "type":"string"
+                          },
+                          {
+                            "name":"accountCurrencyIso",
+                            "type":"string"
+                          },
+                          {
+                            "name":"accountUsage",
+                            "type":"string"
+                          },
+                          {
+                            "name":"internalAccountId",
+                            "type":"string"
+                          },
+                          {
+                            "name":"settlementType",
+                            "type":"string"
+                          },
+                          {
+                            "name":"balancingPeriod",
+                            "type":"string"
+                          },
+                          {
+                            "name":"balancingPeriodSerialNumber",
+                            "type":"string"
+                          },
+                          {
+                            "name":"currency",
+                            "type":"string"
+                          },
+                          {
+                            "name":"currencyIso",
+                            "type":"string"
+                          },
+                          {
+                            "name":"timestampPeriodStart",
+                            "type":"long"
+                          },
+                          {
+                            "name":"timestampPeriodEnd",
+                            "type":"long"
+                          },
+                          {
+                            "name":"timestampInterestEnd",
+                            "type":"long"
+                          },
+                          {
+                            "name":"timestampValidityEnd",
+                            "type":"long"
+                          },
+                          {
+                            "name":"timestampValueDate",
+                            "type":"long"
+                          },
+                          {
+                            "name":"timestampPostingDate",
+                            "type":"long"
+                          },
+                          {
+                            "name":"balance",
+                            "type":"double"
+                          },
+                          {
+                            "name":"balanceCurr",
+                            "type":"string"
+                          },
+                          {
+                            "name":"averageInterestRate",
+                            "type":"double"
+                          },
+                          {
+                            "name":"ispaymentreferenceexist",
+                            "type":"string"
+                          },
+                          {
+                            "name":"amountInterestTotal",
+                            "type":"double"
+                          },
+                          {
+                            "name":"amountInterestTotalCurr",
+                            "type":"string"
+                          },
+                          {
+                            "name":"amountPreperiodinterestTotal",
+                            "type":"double"
+                          },
+                          {
+                            "name":"amountPreperiodinterestCurr",
+                            "type":"string"
+                          },
+                          {
+                            "name":"balanceType",
+                            "type":"string"
+                          },
+                          {
+                            "name":"endTmstpPost",
+                            "type":"long"
+                          },
+                          {
+                            "name":"notPosted",
+                            "type":"string"
+                          }
+                        ]
+                      }
+                    }
+                  ]
+                },
+                {
+                  "name": "acctsettleAggrTotalIntFee",
+                  "type": [
+                    "null",
+                    {
+                      "type": "array",
+                      "items": {
+                        "type": "record",
+                        "name": "cbaDmStrCdsSagIntfeeR35114824",
+                        "fields": [
+                          {
+                            "name":"settlementType",
+                            "type":"string"
+                          },
+                          {
+                            "name":"conditionSet",
+                            "type":"string"
+                          },
+                          {
+                            "name":"noAggregation",
+                            "type":"string"
+                          },
+                          {
+                            "name":"conditionType",
+                            "type":"string"
+                          },
+                          {
+                            "name":"usageCategory",
+                            "type":"string"
+                          },
+                          {
+                            "name":"setCategory",
+                            "type":"string"
+                          },
+                          {
+                            "name":"amount",
+                            "type":"double"
+                          },
+                          {
+                            "name":"amountCurr",
+                            "type":"string"
+                          },
+                          {
+                            "name":"conditionClass",
+                            "type":"string"
+                          },
+                          {
+                            "name":"accountCurrency",
+                            "type":"string"
+                          }
+                        ]
+                      }
+                    }
+                  ]
+                },
+                {
+                  "name": "acctsettleAggrWithTax",
+                  "type": {
+                    "type": "record",
+                    "name": "cbaDmStrCdsAgsettwtaxR35120055",
+                    "fields": [
+                      {
+                        "name":"accountCurrency",
+                        "type":"string"
+                      },
+                      {
+                        "name":"resWithTax",
+                        "type":"double"
+                      },
+                      {
+                        "name":"resWithTaxCurr",
+                        "type":"string"
+                      },
+                      {
+                        "name":"nonResWithTax",
+                        "type":"double"
+                      },
+                      {
+                        "name":"nonResWithTaxCurr",
+                        "type":"string"
+                      },
+                      {
+                        "name":"concessWithTax",
+                        "type":"double"
+                      },
+                      {
+                        "name":"concessWithTaxCurr",
+                        "type":"string"
+                      }
+                    ]
+                  }
+                }
+              ]
+            }
+          }
+        ]
+      }
+    }
+  ]
+}

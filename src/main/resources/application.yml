@@ -1,0 +1,269 @@
+spring:
+  cloud:
+    stream:
+      function:
+        definition: accountLevelCorrespondence;accountFeatureMessage;accountRelationship;masterContractHierarchy;loanAgreement;accountKeyFigures;accountLimits;accountSettlementFrequency;termDepositAgreement;contractCustomerRelationship;customerGeneralData;customerRelationship;masterContractCombinedSettlement;masterContractUtilization;masterContractLimits
+      bindings:
+        accountLevelCorrespondence-in-0:
+          destination: SAP-BDA-DM-CDS-Account-Correspondence-Light
+        accountLevelCorrespondence-out-0:
+          destination: SAP-BDA-DM-CDS-Account-Correspondence-Enriched
+        accountFeatureMessage-in-0:
+          destination: SAP-BDA-DM-CDS-Account-Features-Light
+        accountFeatureMessage-out-0:
+          destination: SAP-BDA-DM-CDS-Account-Features-Enriched
+        accountRelationship-in-0:
+          destination: SAP-BDA-DM-CDS-Account-Relationship-Light
+        accountRelationship-out-0:
+          destination: SAP-BDA-DM-CDS-Account-Relationship-Enriched
+        masterContractHierarchy-in-0:
+          destination: SAP-BDA-DM-CDS-Master-Contract-Hierarchy-Light
+        masterContractHierarchy-out-0:
+          destination: SAP-BDA-DM-CDS-Master-Contract-Hierarchy-Enriched
+        loanAgreement-in-0:
+          destination: SAP-BDA-DM-CDS-Loan-Agreement-Light
+        loanAgreement-out-0:
+          destination: SAP-BDA-DM-CDS-Loan-Agreement-Enriched
+        accountKeyFigures-in-0:
+          destination: SAP-BDA-DM-CDS-Account-Key-Figures-Light
+        accountKeyFigures-out-0:
+          destination: SAP-BDA-DM-CDS-Account-Key-Figures-Enriched
+        accountLimits-in-0:
+          destination: SAP-BDA-DM-CDS-Account-Limits-Light
+        accountLimits-out-0:
+          destination: SAP-BDA-DM-CDS-Account-Limits-Enriched
+        accountSettlementFrequency-in-0:
+          destination: SAP-BDA-DM-CDS-Account-Settlement-Frequency-Light
+        accountSettlementFrequency-out-0:
+          destination: SAP-BDA-DM-CDS-Account-Settlement-Frequency-Enriched
+        termDepositAgreement-in-0:
+          destination: SAP-BDA-DM-CDS-Term-Deposit-Agreement-Light
+        termDepositAgreement-out-0:
+          destination: SAP-BDA-DM-CDS-Term-Deposit-Agreement-Enriched
+        contractCustomerRelationship-in-0:
+          destination: SAP-BDA-DM-CDS-Contract-Customer-Relationship-Light
+        contractCustomerRelationship-out-0:
+          destination: SAP-BDA-DM-CDS-Contract-Customer-Relationship-Enriched
+        customerGeneralData-in-0:
+          destination: SAP-BDA-DM-CDS-Customer-GeneralData-Light
+        customerGeneralData-out-0:
+          destination: SAP-BDA-DM-CDS-Customer-GeneralData-Enriched
+        customerRelationship-in-0:
+          destination: SAP-BDA-DM-CDS-Customer-Relationship-Light
+        customerRelationship-out-0:
+          destination: SAP-BDA-DM-CDS-Customer-Relationship-Enriched
+        masterContractCombinedSettlement-in-0:
+          destination: SAP-BDA-DM-CDS-MC-Combined-Settlement-Light
+        masterContractCombinedSettlement-out-0:
+          destination: SAP-BDA-DM-CDS-MC-Combined-Settlement-Enriched
+        masterContractUtilization-in-0:
+          destination: SAP-BDA-DM-CDS-Master-Contract-Utilization-Light
+        masterContractUtilization-out-0:
+          destination: SAP-BDA-DM-CDS-Master-Contract-Utilization-Enriched
+        masterContractLimits-in-0:
+          destination: SAP-BDA-DM-CDS-Master-Contract-Limits-Light
+        masterContractLimits-out-0:
+          destination: SAP-BDA-DM-CDS-Master-Contract-Limits-Enriched
+      kafka:
+        streams:
+          binder:
+            deserialization-exception-handler: logandcontinue
+            autoCreateTopics: true
+            brokers: http://localhost:9092
+            configuration:
+              security.protocol: SSL
+              ssl.truststore.location: ./config/env/streaming-connectors.jks
+              ssl.truststore.password: Password01
+              ssl.keystore.location: ./config/env/streaming-connectors.jks
+              ssl.keystore.password: Password01
+              ssl.key.password: Password01
+              default.key.serde: io.confluent.kafka.streams.serdes.avro.PrimitiveAvroSerde
+              default.value.serde: io.confluent.kafka.streams.serdes.avro.GenericAvroSerde
+              schema.registry.url: http://localhost:8084
+              schema.registry.ssl.truststore.location: ./config/env/streaming-connectors.jks
+              schema.registry.ssl.truststore.password: Password01
+              specific.avro.reader: false
+              enriched.schema.folder.version.SAP-BDA-DM-CDS-ACCOUNT-CORRESPONDENCE-ENRICHED: v1
+              enriched.schema.folder.version.SAP-BDA-DM-CDS-ACCOUNT-FEATURES-ENRICHED: v1
+              enriched.schema.folder.version.SAP-BDA-DM-CDS-ACCOUNT-RELATIONSHIP-ENRICHED: v1
+              enriched.schema.folder.version.SAP-BDA-DM-CDS-MASTER-CONTRACT-HIERARCHY-ENRICHED: v1
+              enriched.schema.folder.version.SAP-BDA-DM-CDS-LOAN-AGREEMENT-ENRICHED: v1
+              enriched.schema.folder.version.SAP-BDA-DM-CDS-ACCOUNT-KEY-FIGURES-ENRICHED: v1
+              enriched.schema.folder.version.SAP-BDA-DM-CDS-ACCOUNT-LIMITS-ENRICHED: v1
+              enriched.schema.folder.version.SAP-BDA-DM-CDS-ACCOUNT-SETTLEMENT-FREQUENCY-ENRICHED: v1
+              enriched.schema.folder.version.SAP-BDA-DM-CDS-TERM-DEPOSIT-AGREEMENT-ENRICHED: v1
+              enriched.schema.folder.version.SAP-BDA-DM-CDS-CONTRACT-CUSTOMER-RELATIONSHIP-ENRICHED: v0
+              enriched.schema.folder.version.SAP-BDA-DM-CDS-CUSTOMER-GENERALDATA-ENRICHED: v0
+              enriched.schema.folder.version.SAP-BDA-DM-CDS-CUSTOMER-RELATIONSHIP-ENRICHED: v0
+              enriched.schema.folder.version.SAP-BDA-DM-CDS-MC-COMBINED-SETTLEMENT-ENRICHED: v0
+              enriched.schema.folder.version.SAP-BDA-DM-CDS-MASTER-CONTRACT-UTILIZATION-ENRICHED: v0
+              enriched.schema.folder.version.SAP-BDA-DM-CDS-MASTER-CONTRACT-LIMITS-ENRICHED: v0
+              #              num.stream.threads: 3
+              #              commit.interval.ms: 5000
+              default.production.exception.handler: au.com.cba.digitalchannels.dataservinglightdecompression.exception.DefaultProductionExceptionHandler
+              #              commit.interval.ms: 3000
+              #              request.timeout.ms: 3000
+              #              max.poll.interval.ms: 4000
+            functions:
+              accountLevelCorrespondence:
+                applicationId: lightdecompression-accountLevelCorrespondence
+              accountFeatureMessage:
+                applicationId: lightdecompression-accountFeatureMessage
+              accountRelationship:
+                applicationId: lightdecompression-accountRelationship
+              masterContractHierarchy:
+                applicationId: lightdecompression-masterContractHierarchy
+              loanAgreement:
+                applicationId: lightdecompression-loanAgreement
+              accountKeyFigures:
+                applicationId: lightdecompression-accountKeyFigures
+              accountLimits:
+                applicationId: lightdecompression-accountLimits
+              accountSettlementFrequency:
+                applicationId: lightdecompression-accountSettlementFrequency
+              termDepositAgreement:
+                applicationId: lightdecompression-termDepositAgreement
+              contractCustomerRelationship:
+                applicationId: lightdecompression-contractCustomerRelationship
+              customerGeneralData:
+                applicationId: lightdecompression-customerGeneralData
+              customerRelationship:
+                applicationId: lightdecompression-customerRelationship
+              masterContractCombinedSettlement:
+                applicationId: lightdecompression-masterContractCombinedSettlement
+              masterContractUtilization:
+                applicationId: lightdecompression-masterContractUtilization
+              masterContractLimits:
+                applicationId: lightdecompression-masterContractLimits
+          bindings:
+            accountLevelCorrespondence-in-0:
+              consumer:
+                keySerde: io.confluent.kafka.streams.serdes.avro.PrimitiveAvroSerde
+                valueSerde: au.com.cba.digitalchannels.dataservinglightdecompression.serialization.HybridGenericAvroSerde
+            accountLevelCorrespondence-out-0:
+              producer:
+                keySerde: io.confluent.kafka.streams.serdes.avro.PrimitiveAvroSerde
+                valueSerde: au.com.cba.digitalchannels.dataservinglightdecompression.serialization.HybridGenericAvroSerde
+            accountFeatureMessage-in-0:
+              consumer:
+                keySerde: io.confluent.kafka.streams.serdes.avro.PrimitiveAvroSerde
+                valueSerde: au.com.cba.digitalchannels.dataservinglightdecompression.serialization.HybridGenericAvroSerde
+            accountFeatureMessage-out-0:
+              producer:
+                keySerde: io.confluent.kafka.streams.serdes.avro.PrimitiveAvroSerde
+                valueSerde: au.com.cba.digitalchannels.dataservinglightdecompression.serialization.HybridGenericAvroSerde
+            accountRelationship-in-0:
+              consumer:
+                keySerde: io.confluent.kafka.streams.serdes.avro.PrimitiveAvroSerde
+                valueSerde: au.com.cba.digitalchannels.dataservinglightdecompression.serialization.HybridGenericAvroSerde
+            accountRelationship-out-0:
+              producer:
+                keySerde: io.confluent.kafka.streams.serdes.avro.PrimitiveAvroSerde
+                valueSerde: au.com.cba.digitalchannels.dataservinglightdecompression.serialization.HybridGenericAvroSerde
+            masterContractHierarchy-in-0:
+              consumer:
+                keySerde: io.confluent.kafka.streams.serdes.avro.PrimitiveAvroSerde
+                valueSerde: au.com.cba.digitalchannels.dataservinglightdecompression.serialization.HybridGenericAvroSerde
+            masterContractHierarchy-out-0:
+              producer:
+                keySerde: io.confluent.kafka.streams.serdes.avro.PrimitiveAvroSerde
+                valueSerde: au.com.cba.digitalchannels.dataservinglightdecompression.serialization.HybridGenericAvroSerde
+            loanAgreement-in-0:
+              consumer:
+                keySerde: io.confluent.kafka.streams.serdes.avro.PrimitiveAvroSerde
+                valueSerde: au.com.cba.digitalchannels.dataservinglightdecompression.serialization.HybridGenericAvroSerde
+            loanAgreement-out-0:
+              producer:
+                keySerde: io.confluent.kafka.streams.serdes.avro.PrimitiveAvroSerde
+                valueSerde: au.com.cba.digitalchannels.dataservinglightdecompression.serialization.HybridGenericAvroSerde
+            accountKeyFigures-in-0:
+              consumer:
+                keySerde: io.confluent.kafka.streams.serdes.avro.PrimitiveAvroSerde
+                valueSerde: au.com.cba.digitalchannels.dataservinglightdecompression.serialization.HybridGenericAvroSerde
+            accountKeyFigures-out-0:
+              producer:
+                keySerde: io.confluent.kafka.streams.serdes.avro.PrimitiveAvroSerde
+                valueSerde: au.com.cba.digitalchannels.dataservinglightdecompression.serialization.HybridGenericAvroSerde
+            accountLimits-in-0:
+              consumer:
+                keySerde: io.confluent.kafka.streams.serdes.avro.PrimitiveAvroSerde
+                valueSerde: au.com.cba.digitalchannels.dataservinglightdecompression.serialization.HybridGenericAvroSerde
+            accountLimits-out-0:
+              producer:
+                keySerde: io.confluent.kafka.streams.serdes.avro.PrimitiveAvroSerde
+                valueSerde: au.com.cba.digitalchannels.dataservinglightdecompression.serialization.HybridGenericAvroSerde
+            accountSettlementFrequency-in-0:
+              consumer:
+                keySerde: io.confluent.kafka.streams.serdes.avro.PrimitiveAvroSerde
+                valueSerde: au.com.cba.digitalchannels.dataservinglightdecompression.serialization.HybridGenericAvroSerde
+            accountSettlementFrequency-out-0:
+              producer:
+                keySerde: io.confluent.kafka.streams.serdes.avro.PrimitiveAvroSerde
+                valueSerde: au.com.cba.digitalchannels.dataservinglightdecompression.serialization.HybridGenericAvroSerde
+            termDepositAgreement-in-0:
+              consumer:
+                keySerde: io.confluent.kafka.streams.serdes.avro.PrimitiveAvroSerde
+                valueSerde: au.com.cba.digitalchannels.dataservinglightdecompression.serialization.HybridGenericAvroSerde
+            termDepositAgreement-out-0:
+              producer:
+                keySerde: io.confluent.kafka.streams.serdes.avro.PrimitiveAvroSerde
+                valueSerde: au.com.cba.digitalchannels.dataservinglightdecompression.serialization.HybridGenericAvroSerde
+            contractCustomerRelationship-in-0:
+              consumer:
+                keySerde: io.confluent.kafka.streams.serdes.avro.PrimitiveAvroSerde
+                valueSerde: au.com.cba.digitalchannels.dataservinglightdecompression.serialization.HybridGenericAvroSerde
+            contractCustomerRelationship-out-0:
+              producer:
+                keySerde: io.confluent.kafka.streams.serdes.avro.PrimitiveAvroSerde
+                valueSerde: au.com.cba.digitalchannels.dataservinglightdecompression.serialization.HybridGenericAvroSerde
+            customerGeneralData-in-0:
+              consumer:
+                keySerde: io.confluent.kafka.streams.serdes.avro.PrimitiveAvroSerde
+                valueSerde: au.com.cba.digitalchannels.dataservinglightdecompression.serialization.HybridGenericAvroSerde
+            customerGeneralData-out-0:
+              producer:
+                keySerde: io.confluent.kafka.streams.serdes.avro.PrimitiveAvroSerde
+                valueSerde: au.com.cba.digitalchannels.dataservinglightdecompression.serialization.HybridGenericAvroSerde
+            customerRelationship-in-0:
+              consumer:
+                keySerde: io.confluent.kafka.streams.serdes.avro.PrimitiveAvroSerde
+                valueSerde: au.com.cba.digitalchannels.dataservinglightdecompression.serialization.HybridGenericAvroSerde
+            customerRelationship-out-0:
+              producer:
+                keySerde: io.confluent.kafka.streams.serdes.avro.PrimitiveAvroSerde
+                valueSerde: au.com.cba.digitalchannels.dataservinglightdecompression.serialization.HybridGenericAvroSerde
+            masterContractCombinedSettlement-in-0:
+              consumer:
+                keySerde: io.confluent.kafka.streams.serdes.avro.PrimitiveAvroSerde
+                valueSerde: au.com.cba.digitalchannels.dataservinglightdecompression.serialization.HybridGenericAvroSerde
+            masterContractCombinedSettlement-out-0:
+              producer:
+                keySerde: io.confluent.kafka.streams.serdes.avro.PrimitiveAvroSerde
+                valueSerde: au.com.cba.digitalchannels.dataservinglightdecompression.serialization.HybridGenericAvroSerde
+            masterContractUtilization-in-0:
+              consumer:
+                keySerde: io.confluent.kafka.streams.serdes.avro.PrimitiveAvroSerde
+                valueSerde: au.com.cba.digitalchannels.dataservinglightdecompression.serialization.HybridGenericAvroSerde
+            masterContractUtilization-out-0:
+              producer:
+                keySerde: io.confluent.kafka.streams.serdes.avro.PrimitiveAvroSerde
+                valueSerde: au.com.cba.digitalchannels.dataservinglightdecompression.serialization.HybridGenericAvroSerde
+
+            masterContractLimits-in-0:
+              consumer:
+                keySerde: io.confluent.kafka.streams.serdes.avro.PrimitiveAvroSerde
+                valueSerde: au.com.cba.digitalchannels.dataservinglightdecompression.serialization.HybridGenericAvroSerde
+            masterContractLimits-out-0:
+              producer:
+                keySerde: io.confluent.kafka.streams.serdes.avro.PrimitiveAvroSerde
+                valueSerde: au.com.cba.digitalchannels.dataservinglightdecompression.serialization.HybridGenericAvroSerde
+  application:
+    name: lightdecompression-processor
+server:
+  shutdown: graceful
+bindings:
+  monitoring:
+    enabled: false
+    list: accountLevelCorrespondence-in-0;accountLevelCorrespondence-out-0;accountFeatureMessage-in-0;accountFeatureMessage-out-0;accountRelationship-in-0;accountRelationship-out-0;masterContractHierarchy-in-0;masterContractHierarchy-out-0;loanAgreement-in-0;loanAgreement-out-0;accountKeyFigures-in-0;accountKeyFigures-out-0;accountLimits-in-0;accountLimits-out-0;accountSettlementFrequency-in-0;accountSettlementFrequency-out-0;termDepositAgreement-in-0;termDepositAgreement-out-0;contractCustomerRelationship-in-0;contractCustomerRelationship-out-0;customerGeneralData-in-0;customerGeneralData-out-0;customerRelationship-in-0;customerRelationship-out-0;masterContractCombinedSettlement-in-0;masterContractCombinedSettlement-out-0;masterContractUtilization-in-0;masterContractUtilization-out-0;masterContractLimits-in-0;masterContractLimits-out-0
+    failureThreshold: 10
+    interval: 60000

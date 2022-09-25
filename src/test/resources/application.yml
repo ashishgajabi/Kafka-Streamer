@@ -1,0 +1,45 @@
+spring:
+  cloud:
+    stream:
+      function:
+        definition: accountFeatureMessage
+      bindings:
+        accountFeatureMessage-in-0:
+          destination: SAP-BDA-DM-CDS-Account-Features-Light
+        accountFeatureMessage-out-0:
+          destination: SAP-BDA-DM-CDS-Account-Features-Enriched
+      kafka:
+        streams:
+          binder:
+            deserialization-exception-handler: logandcontinue
+            autoCreateTopics: true
+            configuration:
+              default.key.serde: io.confluent.kafka.streams.serdes.avro.PrimitiveAvroSerde
+              default.value.serde: io.confluent.kafka.streams.serdes.avro.GenericAvroSerde
+              schema.registry.url: http://localhost:8084
+              specific.avro.reader: false
+              default.production.exception.handler: au.com.cba.digitalchannels.dataservinglightdecompression.exception.DefaultProductionExceptionHandler
+              enriched.schema.folder.version.SAP-BDA-DM-CDS-ACCOUNT-FEATURES-ENRICHED: v1
+              commit.interval.ms: 4000
+            functions:
+              accountFeatureMessage:
+                applicationId: lightdecompression-accountFeatureMessage
+          bindings:
+            accountFeatureMessage-in-0:
+              consumer:
+                keySerde: io.confluent.kafka.streams.serdes.avro.PrimitiveAvroSerde
+                valueSerde: au.com.cba.digitalchannels.dataservinglightdecompression.serialization.HybridGenericAvroSerde
+            accountFeatureMessage-out-0:
+              producer:
+                keySerde: io.confluent.kafka.streams.serdes.avro.PrimitiveAvroSerde
+                valueSerde: au.com.cba.digitalchannels.dataservinglightdecompression.serialization.HybridGenericAvroSerde
+  application:
+    name: lightdecompression-processor
+server:
+  shutdown: graceful
+bindings:
+  monitoring:
+    enabled: true
+    list: accountFeatureMessage-in-0;accountFeatureMessage-out-0;
+    failureThreshold: 1
+    interval: 5000

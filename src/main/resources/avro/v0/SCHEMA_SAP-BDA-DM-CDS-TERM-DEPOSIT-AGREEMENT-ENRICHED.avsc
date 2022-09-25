@@ -1,0 +1,968 @@
+{
+  "type": "record",
+  "name": "TDAgreementChangeMessage",
+  "namespace": "au.com.cba.kafka.account.tdAgreementChange",
+  "doc": "This schema is to support TD agreeement change notifications from SAP Banking",
+  "fields": [
+    {
+      "name": "header",
+      "type": {
+        "type": "record",
+        "name": "KafkaEventHeader",
+        "namespace": "au.com.cba.kafka.core",
+        "fields": [
+          {
+            "name": "correlationId",
+            "type": {
+              "type": "string",
+              "avro.java.string": "String"
+            }
+          },
+          {
+            "name": "processPath",
+            "type": [
+              "null",
+              {
+                "type": "array",
+                "items": {
+                  "type": "record",
+                  "name": "ProcessPathElement",
+                  "fields": [
+                    {
+                      "name": "source",
+                      "type": {
+                        "type": "string",
+                        "avro.java.string": "String"
+                      }
+                    },
+                    {
+                      "name": "timestamp",
+                      "type": {
+                        "type": "string",
+                        "avro.java.string": "String"
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "name": "createTimestamp",
+      "type": "string"
+    },
+    {
+      "name": "tdagreement",
+      "type": {
+        "type": "record",
+        "name": "cbadmStrCdsTdMaster0",
+        "fields": [
+          {
+            "name": "commonInformation",
+            "type": {
+              "type": "record",
+              "name": "cbadmStrCdsCommonData5920",
+              "fields": [
+                {
+                  "name": "contractDetailResult",
+                  "type": {
+                    "type": "record",
+                    "name": "cbadmStrCdsCndataopR33112195",
+                    "fields": [
+                      {
+                        "name": "accountData",
+                        "type": {
+                          "type": "record",
+                          "name": "cbadmStrCdsBapiAccamCn117038",
+                          "fields": [
+                            {
+                              "name": "internalAccountId",
+                              "type": "string"
+                            },
+                            {
+                              "name": "accountChangeTimestamp",
+                              "type": "string"
+                            },
+                            {
+                              "name": "validFrom",
+                              "type": "string"
+                            },
+                            {
+                              "name": "validTo",
+                              "type": "string"
+                            },
+                            {
+                              "name": "validToReal",
+                              "type": "string"
+                            },
+                            {
+                              "name": "accountNumber",
+                              "type": "string"
+                            },
+                            {
+                              "name": "bankCountry",
+                              "type": "string"
+                            },
+                            {
+                              "name": "bankCountryIso",
+                              "type": "string"
+                            },
+                            {
+                              "name": "bankCode",
+                              "type": "string"
+                            },
+                            {
+                              "name": "accountCurrency",
+                              "type": "string"
+                            },
+                            {
+                              "name": "accountCurrencyIso",
+                              "type": "string"
+                            },
+                            {
+                              "name": "accountUsage",
+                              "type": "string"
+                            },
+                            {
+                              "name": "checkDigitCalculation",
+                              "type": "string"
+                            },
+                            {
+                              "name": "userLastChange",
+                              "type": "string"
+                            },
+                            {
+                              "name": "changeBtcatg",
+                              "type": "string"
+                            },
+                            {
+                              "name": "tobeReleased",
+                              "type": "string"
+                            },
+                            {
+                              "name": "iban",
+                              "type": "string"
+                            }
+                          ]
+                        }
+                      },
+                      {
+                        "name": "accountAnchorData",
+                        "type": {
+                          "type": "record",
+                          "name": "cbadmStrCdsAccAnchrDat125453",
+                          "fields": [
+                            {
+                              "name": "internalAccountId",
+                              "type": "string"
+                            },
+                            {
+                              "name": "contractChangeTimestamp",
+                              "type": "string"
+                            },
+                            {
+                              "name": "validFrom",
+                              "type": "string"
+                            },
+                            {
+                              "name": "validTo",
+                              "type": "string"
+                            },
+                            {
+                              "name": "validToReal",
+                              "type": "string"
+                            },
+                            {
+                              "name": "contractBegin",
+                              "type": "string"
+                            },
+                            {
+                              "name": "contractPlannedEnd",
+                              "type": "string"
+                            },
+                            {
+                              "name": "contractActualEnd",
+                              "type": "string"
+                            },
+                            {
+                              "name": "contractProcessFrom",
+                              "type": "string"
+                            },
+                            {
+                              "name": "contractProductiveFrom",
+                              "type": "string"
+                            },
+                            {
+                              "name": "productIdInternal",
+                              "type": "string"
+                            },
+                            {
+                              "name": "productVersion",
+                              "type": "string"
+                            },
+                            {
+                              "name": "productCategory",
+                              "type": "string"
+                            },
+                            {
+                              "name": "accountCurrency",
+                              "type": "string"
+                            },
+                            {
+                              "name": "accountCurrencyIso",
+                              "type": "string"
+                            },
+                            {
+                              "name": "calenderKey1",
+                              "type": "string"
+                            },
+                            {
+                              "name": "calenderKey2",
+                              "type": "string"
+                            },
+                            {
+                              "name": "calenderKey3",
+                              "type": "string"
+                            },
+                            {
+                              "name": "status",
+                              "type": "string"
+                            },
+                            {
+                              "name": "tobeReleased",
+                              "type": "string"
+                            },
+                            {
+                              "name": "authGroup",
+                              "type": "string"
+                            },
+                            {
+                              "name": "userLastChange",
+                              "type": "string"
+                            },
+                            {
+                              "name": "changeBtcatg",
+                              "type": "string"
+                            },
+                            {
+                              "name": "migrationGroup",
+                              "type": "string"
+                            },
+                            {
+                              "name": "product",
+                              "type": "string"
+                            },
+                            {
+                              "name": "productdescr",
+                              "type": "string"
+                            }
+                          ]
+                        }
+                      },
+                      {
+                        "name": "contractPurposeData",
+                        "type": {
+                          "type": "record",
+                          "name": "cbadmStrCdsBapiBcaP135268",
+                          "fields": [
+                            {
+                              "name": "contractPurpose",
+                              "type": "string"
+                            },
+                            {
+                              "name": "language",
+                              "type": "string"
+                            },
+                            {
+                              "name": "languageIso",
+                              "type": "string"
+                            },
+                            {
+                              "name": "validFrom",
+                              "type": "string"
+                            },
+                            {
+                              "name": "validTo",
+                              "type": "string"
+                            },
+                            {
+                              "name": "creationReferenceId",
+                              "type": "string"
+                            },
+                            {
+                              "name": "creationReferenceScheme",
+                              "type": "string"
+                            },
+                            {
+                              "name": "creationReferenceAgency",
+                              "type": "string"
+                            },
+                            {
+                              "name": "creationProductId",
+                              "type": "string"
+                            },
+                            {
+                              "name": "creationProductScheme",
+                              "type": "string"
+                            },
+                            {
+                              "name": "creationProductAgency",
+                              "type": "string"
+                            },
+                            {
+                              "name": "salesContractRef",
+                              "type": "string"
+                            }
+                          ]
+                        }
+                      },
+                      {
+                        "name": "contractDesc",
+                        "type": "string"
+                      },
+                      {
+                        "name": "activityStatus",
+                        "type": {
+                          "type": "record",
+                          "name": "cbadmStrCdsActiviStData44449",
+                          "fields": [
+                            {
+                              "name": "activityStatus",
+                              "type": "string"
+                            },
+                            {
+                              "name": "actStatusDesc",
+                              "type": "string"
+                            },
+                            {
+                              "name": "propertyCode",
+                              "type": "string"
+                            }
+                          ]
+                        }
+                      }
+                    ]
+                  }
+                },
+                {
+                  "name": "cbaExtension1",
+                  "type": {
+                    "type": "record",
+                    "name": "cbadmStrCdsExtData49000",
+                    "fields": [
+                      {
+                        "name": "moo",
+                        "type": "string"
+                      },
+                      {
+                        "name": "acOpnRsnCode",
+                        "type": "string"
+                      },
+                      {
+                        "name": "isRelForRelat",
+                        "type": "string"
+                      },
+                      {
+                        "name": "acctUse",
+                        "type": "string"
+                      },
+                      {
+                        "name": "acctUseText",
+                        "type": "string"
+                      },
+                      {
+                        "name": "classCode",
+                        "type": "string"
+                      },
+                      {
+                        "name": "classCodeText",
+                        "type": "string"
+                      },
+                      {
+                        "name": "fundSource",
+                        "type": "string"
+                      },
+                      {
+                        "name": "fundSourceText",
+                        "type": "string"
+                      },
+                      {
+                        "name": "salesChannel",
+                        "type": "string"
+                      },
+                      {
+                        "name": "salChlText",
+                        "type": "string"
+                      },
+                      {
+                        "name": "salesProduct",
+                        "type": "string"
+                      },
+                      {
+                        "name": "salPrdText",
+                        "type": "string"
+                      },
+                      {
+                        "name": "preAllcObjid",
+                        "type": "string"
+                      },
+                      {
+                        "name": "preAllcText",
+                        "type": "string"
+                      },
+                      {
+                        "name": "crossRefId",
+                        "type": "string"
+                      },
+                      {
+                        "name": "shortName",
+                        "type": "string"
+                      },
+                      {
+                        "name": "manualAccTitle",
+                        "type": "string"
+                      },
+                      {
+                        "name": "accountTitle",
+                        "type": "string"
+                      },
+                      {
+                        "name": "cardAccess",
+                        "type": "string"
+                      },
+                      {
+                        "name": "edtsFlag",
+                        "type": "string"
+                      },
+                      {
+                        "name": "inCollections",
+                        "type": "string"
+                      },
+                      {
+                        "name": "phonCntctTdma",
+                        "type": "string"
+                      },
+                      {
+                        "name": "depIntType",
+                        "type": "string"
+                      },
+                      {
+                        "name": "packageCode",
+                        "type": "string"
+                      },
+                      {
+                        "name": "earlTranDate",
+                        "type": "string"
+                      },
+                      {
+                        "name": "macroSegment",
+                        "type": "string"
+                      },
+                      {
+                        "name": "bankStmtCopies",
+                        "type": "string"
+                      },
+                      {
+                        "name": "secondaryPoc",
+                        "type": "string"
+                      },
+                      {
+                        "name": "agentNumCheck",
+                        "type": "string"
+                      },
+                      {
+                        "name": "pstAllcDeptId",
+                        "type": "string"
+                      },
+                      {
+                        "name": "affiliate",
+                        "type": "string"
+                      },
+                      {
+                        "name": "altProductId",
+                        "type": "string"
+                      }
+                    ]
+                  }
+                },
+                {
+                  "name": "subCategory",
+                  "type": "string"
+                },
+                {
+                  "name": "addInfo1",
+                  "type": "string"
+                },
+                {
+                  "name": "addInfo2",
+                  "type": "string"
+                },
+                {
+                  "name": "addInfo3",
+                  "type": "string"
+                },
+                {
+                  "name": "crtUser",
+                  "type": "string"
+                },
+                {
+                  "name": "crtTimestamp",
+                  "type": "string"
+                },
+                {
+                  "name": "chgUser",
+                  "type": "string"
+                },
+                {
+                  "name": "chgTimestamp",
+                  "type": "string"
+                }
+              ]
+            }
+          },
+          {
+            "name": "tdAgreementDataResult",
+            "type": {
+              "type": "record",
+              "name": "cbadmStrCdsTdAgreemntOp63197",
+              "fields": [
+                {
+                  "name": "pastdeals",
+                  "type": [
+                    "null",
+                    {
+                      "type": "array",
+                      "items": {
+                        "type": "record",
+                        "name": "cbadmStrCdsPublicFixdDe71901",
+                        "fields": [
+                          {
+                            "name": "externalDealNumber",
+                            "type": "string"
+                          },
+                          {
+                            "name": "startOfTransaction",
+                            "type": "string"
+                          },
+                          {
+                            "name": "dealDuration",
+                            "type": "string"
+                          },
+                          {
+                            "name": "periodUnit",
+                            "type": "string"
+                          },
+                          {
+                            "name": "endOfDeal",
+                            "type": "string"
+                          },
+                          {
+                            "name": "dealStatus",
+                            "type": "string"
+                          },
+                          {
+                            "name": "indicatorEndOfTermFixing",
+                            "type": "string"
+                          },
+                          {
+                            "name": "latestStartOfTerm",
+                            "type": "string"
+                          },
+                          {
+                            "name": "dateOfNoticeMaturity",
+                            "type": "string"
+                          },
+                          {
+                            "name": "dealAmount",
+                            "type": "double"
+                          },
+                          {
+                            "name": "dealAmountCurrency",
+                            "type": "string"
+                          },
+                          {
+                            "name": "dealAmountCurrencyIso",
+                            "type": "string"
+                          },
+                          {
+                            "name": "diffAmount",
+                            "type": "double"
+                          },
+                          {
+                            "name": "diffAmountCurrency",
+                            "type": "string"
+                          },
+                          {
+                            "name": "diffAmountCurrencyIso",
+                            "type": "string"
+                          },
+                          {
+                            "name": "contractAmountCalculation",
+                            "type": "string"
+                          },
+                          {
+                            "name": "detFullrepaym",
+                            "type": "string"
+                          },
+                          {
+                            "name": "interestTerm",
+                            "type": "string"
+                          },
+                          {
+                            "name": "interestEot",
+                            "type": "string"
+                          },
+                          {
+                            "name": "capitalYieldTaxCalc",
+                            "type": "string"
+                          },
+                          {
+                            "name": "creationNoticeOfMaturity",
+                            "type": "string"
+                          },
+                          {
+                            "name": "dealOrigin",
+                            "type": "string"
+                          },
+                          {
+                            "name": "endOfGracePeriod",
+                            "type": "string"
+                          },
+                          {
+                            "name": "flagForfeitInterest",
+                            "type": "string"
+                          },
+                          {
+                            "name": "startOfRateLockPeriod",
+                            "type": "string"
+                          },
+                          {
+                            "name": "rateLockPeriod",
+                            "type": "string"
+                          },
+                          {
+                            "name": "rateLockPeriodUnit",
+                            "type": "string"
+                          },
+                          {
+                            "name": "endOfRateLockPeriod",
+                            "type": "string"
+                          },
+                          {
+                            "name": "rateLockReason",
+                            "type": "string"
+                          }
+                        ]
+                      }
+                    }
+                  ]
+                },
+                {
+                  "name": "futuredeals",
+                  "type": [
+                    "null",
+                    {
+                      "type": "array",
+                      "items": {
+                        "type": "record",
+                        "name": "cbadmStrCdsPublicFixdDe86887",
+                        "fields": [
+                          {
+                            "name": "externalDealNumber",
+                            "type": "string"
+                          },
+                          {
+                            "name": "startOfTransaction",
+                            "type": "string"
+                          },
+                          {
+                            "name": "dealDuration",
+                            "type": "string"
+                          },
+                          {
+                            "name": "periodUnit",
+                            "type": "string"
+                          },
+                          {
+                            "name": "endOfDeal",
+                            "type": "string"
+                          },
+                          {
+                            "name": "dealStatus",
+                            "type": "string"
+                          },
+                          {
+                            "name": "indicatorEndOfTermFixing",
+                            "type": "string"
+                          },
+                          {
+                            "name": "latestStartOfTerm",
+                            "type": "string"
+                          },
+                          {
+                            "name": "dateOfNoticeMaturity",
+                            "type": "string"
+                          },
+                          {
+                            "name": "dealAmount",
+                            "type": "double"
+                          },
+                          {
+                            "name": "dealAmountCurrency",
+                            "type": "string"
+                          },
+                          {
+                            "name": "dealAmountCurrencyIso",
+                            "type": "string"
+                          },
+                          {
+                            "name": "diffAmount",
+                            "type": "double"
+                          },
+                          {
+                            "name": "diffAmountCurrency",
+                            "type": "string"
+                          },
+                          {
+                            "name": "diffAmountCurrencyIso",
+                            "type": "string"
+                          },
+                          {
+                            "name": "contractAmountCalculation",
+                            "type": "string"
+                          },
+                          {
+                            "name": "detFullrepaym",
+                            "type": "string"
+                          },
+                          {
+                            "name": "interestTerm",
+                            "type": "string"
+                          },
+                          {
+                            "name": "interestEot",
+                            "type": "string"
+                          },
+                          {
+                            "name": "capitalYieldTaxCalc",
+                            "type": "string"
+                          },
+                          {
+                            "name": "creationNoticeOfMaturity",
+                            "type": "string"
+                          },
+                          {
+                            "name": "dealOrigin",
+                            "type": "string"
+                          },
+                          {
+                            "name": "endOfGracePeriod",
+                            "type": "string"
+                          },
+                          {
+                            "name": "flagForfeitInterest",
+                            "type": "string"
+                          },
+                          {
+                            "name": "startOfRateLockPeriod",
+                            "type": "string"
+                          },
+                          {
+                            "name": "rateLockPeriod",
+                            "type": "string"
+                          },
+                          {
+                            "name": "rateLockPeriodUnit",
+                            "type": "string"
+                          },
+                          {
+                            "name": "endOfRateLockPeriod",
+                            "type": "string"
+                          },
+                          {
+                            "name": "rateLockReason",
+                            "type": "string"
+                          }
+                        ]
+                      }
+                    }
+                  ]
+                },
+                {
+                  "name": "currentdeal",
+                  "type": {
+                    "type": "record",
+                    "name": "cbadmStrCdsPublicFixdDe95611",
+                    "fields": [
+                      {
+                        "name": "externalDealNumber",
+                        "type": "string"
+                      },
+                      {
+                        "name": "startOfTransaction",
+                        "type": "string"
+                      },
+                      {
+                        "name": "dealDuration",
+                        "type": "string"
+                      },
+                      {
+                        "name": "periodUnit",
+                        "type": "string"
+                      },
+                      {
+                        "name": "endOfDeal",
+                        "type": "string"
+                      },
+                      {
+                        "name": "dealStatus",
+                        "type": "string"
+                      },
+                      {
+                        "name": "indicatorEndOfTermFixing",
+                        "type": "string"
+                      },
+                      {
+                        "name": "latestStartOfTerm",
+                        "type": "string"
+                      },
+                      {
+                        "name": "dateOfNoticeMaturity",
+                        "type": "string"
+                      },
+                      {
+                        "name": "dealAmount",
+                        "type": "double"
+                      },
+                      {
+                        "name": "dealAmountCurrency",
+                        "type": "string"
+                      },
+                      {
+                        "name": "dealAmountCurrencyIso",
+                        "type": "string"
+                      },
+                      {
+                        "name": "diffAmount",
+                        "type": "double"
+                      },
+                      {
+                        "name": "diffAmountCurrency",
+                        "type": "string"
+                      },
+                      {
+                        "name": "diffAmountCurrencyIso",
+                        "type": "string"
+                      },
+                      {
+                        "name": "contractAmountCalculation",
+                        "type": "string"
+                      },
+                      {
+                        "name": "detFullrepaym",
+                        "type": "string"
+                      },
+                      {
+                        "name": "interestTerm",
+                        "type": "string"
+                      },
+                      {
+                        "name": "interestEot",
+                        "type": "string"
+                      },
+                      {
+                        "name": "capitalYieldTaxCalc",
+                        "type": "string"
+                      },
+                      {
+                        "name": "creationNoticeOfMaturity",
+                        "type": "string"
+                      },
+                      {
+                        "name": "dealOrigin",
+                        "type": "string"
+                      },
+                      {
+                        "name": "endOfGracePeriod",
+                        "type": "string"
+                      },
+                      {
+                        "name": "flagForfeitInterest",
+                        "type": "string"
+                      },
+                      {
+                        "name": "startOfRateLockPeriod",
+                        "type": "string"
+                      },
+                      {
+                        "name": "rateLockPeriod",
+                        "type": "string"
+                      },
+                      {
+                        "name": "rateLockPeriodUnit",
+                        "type": "string"
+                      },
+                      {
+                        "name": "endOfRateLockPeriod",
+                        "type": "string"
+                      },
+                      {
+                        "name": "rateLockReason",
+                        "type": "string"
+                      }
+                    ]
+                  }
+                },
+                {
+                  "name": "generalfixddata",
+                  "type": {
+                    "type": "record",
+                    "name": "cbadmStrCdsCnFixd104962",
+                    "fields": [
+                      {
+                        "name": "defAgreement",
+                        "type": "string"
+                      },
+                      {
+                        "name": "flgAdminClos",
+                        "type": "string"
+                      },
+                      {
+                        "name": "phase",
+                        "type": "string"
+                      }
+                    ]
+                  }
+                },
+                {
+                  "name": "numberOfTdRollover",
+                  "type": "string"
+                }
+              ]
+            }
+          },
+          {
+            "name": "tdAgreementDataHfResult",
+            "type": {
+              "type": "record",
+              "name": "cbadmStrCdsTdAgremHfOp109532",
+              "fields": [
+                {
+                  "name": "numberOfTdHfRollover",
+                  "type": "string"
+                },
+                {
+                  "name": "startDateTdHfRollover",
+                  "type": "string"
+                }
+              ]
+            }
+          }
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,417 @@
+{
+  "type": "record",
+  "name": "CustomerRelationshipDataMessage",
+  "namespace": "au.com.cba.kafka.bp.relationshipdata",
+  "doc": "This schema is to support Business Partner Relationship data information from SAP Banking",
+  "fields": [
+    {
+      "name": "header",
+      "type": {
+        "type": "record",
+        "name": "KafkaEventHeader",
+        "namespace": "au.com.cba.kafka.core.v1",
+        "fields": [
+          {
+            "name": "msgId",
+            "type": {
+              "type": "string",
+              "avro.java.string": "String"
+            }
+          },
+          {
+            "name": "correlationId",
+            "type": {
+              "type": "string",
+              "avro.java.string": "String"
+            }
+          },
+          {
+            "name": "processPath",
+            "type": [
+              "null",
+              {
+                "type": "array",
+                "items": {
+                  "type": "record",
+                  "name": "ProcessPathElement",
+                  "fields": [
+                    {
+                      "name": "source",
+                      "type": {
+                        "type": "string",
+                        "avro.java.string": "String"
+                      }
+                    },
+                    {
+                      "name": "timestamp",
+                      "type": {
+                        "type": "string",
+                        "avro.java.string": "String"
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "name": "createTimestamp",
+      "type": "string"
+    },
+    {
+      "name": "bpRelData",
+      "type": {
+        "type": "record",
+        "name": "cbaCdsStrBuprOut0",
+        "fields": [
+          {
+            "name": "relation",
+            "type": {
+              "type": "record",
+              "name": "cbaCdsAbaRelation3828",
+              "fields": [
+                {
+                  "name": "relationHeader",
+                  "type": {
+                    "type": "record",
+                    "name": "cbaCdsRelationHeader13569",
+                    "fields": [
+                      {
+                        "name":"objectType",
+                        "type":"string"
+                      },
+                      {
+                        "name": "objectInstance",
+                        "type": {
+                          "type": "record",
+                          "name": "cbaCdsRelationInstance19260",
+                          "fields": [
+                            {
+                              "name":"relationNumber",
+                              "type":"string"
+                            },
+                            {
+                              "name": "partner1",
+                              "type": {
+                                "type": "record",
+                                "name": "cbaCdsBuprObjid24909",
+                                "fields": [
+                                  {
+                                    "name":"partner",
+                                    "type":"string"
+                                  },
+                                  {
+                                    "name":"partnerGuid",
+                                    "type":"string"
+                                  },
+                                  {
+                                    "name":"type",
+                                    "type":"string"
+                                  },
+                                  {
+                                    "name":"bpkind",
+                                    "type":"string"
+                                  },
+                                  {
+                                    "name":"partgrptyp",
+                                    "type":"string"
+                                  },
+                                  {
+                                    "name":"bpext",
+                                    "type":"string"
+                                  },
+                                  {
+                                    "name":"bpwhiteLabelCust",
+                                    "type":"string"
+                                  }
+                                ]
+                              }
+                            },
+                            {
+                              "name": "partner2",
+                              "type": {
+                                "type": "record",
+                                "name": "cbaCdsBuprObjid30124",
+                                "fields": [
+                                  {
+                                    "name":"partner",
+                                    "type":"string"
+                                  },
+                                  {
+                                    "name":"partnerGuid",
+                                    "type":"string"
+                                  },
+                                  {
+                                    "name":"type",
+                                    "type":"string"
+                                  },
+                                  {
+                                    "name":"bpkind",
+                                    "type":"string"
+                                  },
+                                  {
+                                    "name":"partgrptyp",
+                                    "type":"string"
+                                  },
+                                  {
+                                    "name":"bpext",
+                                    "type":"string"
+                                  },
+                                  {
+                                    "name":"bpwhiteLabelCust",
+                                    "type":"string"
+                                  }
+                                ]
+                              }
+                            },
+                            {
+                              "name":"relationCategoryCode",
+                              "type":"string"
+                            },
+                            {
+                              "name":"validityEndDate",
+                              "type":"string"
+                            },
+                            {
+                              "name": "relationDifferentiationKey",
+                              "type": {
+                                "type": "record",
+                                "name": "cbaCdsDifferentiationKey33685",
+                                "fields": [
+                                  {
+                                    "name":"keyTypeCode",
+                                    "type":"string"
+                                  },
+                                  {
+                                    "name": "keyComponent",
+                                    "type": [
+                                      "null",
+                                      {
+                                        "type": "array",
+                                        "items": {
+                                          "type": "record",
+                                          "name": "cbaCdsNtiationKeyKeyComp39323",
+                                          "fields": [
+                                            {
+                                              "name": "keyComponentId",
+                                              "type": [
+                                                "null",
+                                                {
+                                                  "type": "array",
+                                                  "items": {
+                                                    "type": "record",
+                                                    "name": "cbaCdsNtiationKeyComp144154",
+                                                    "fields": [
+                                                      {
+                                                        "name":"schemeId",
+                                                        "type":"string"
+                                                      },
+                                                      {
+                                                        "name":"schemeVersionId",
+                                                        "type":"string"
+                                                      },
+                                                      {
+                                                        "name":"schemeAgencyId",
+                                                        "type":"string"
+                                                      },
+                                                      {
+                                                        "name":"schemeAgencySchemeId",
+                                                        "type":"string"
+                                                      },
+                                                      {
+                                                        "name":"schemeAgencySchemeAgencyId",
+                                                        "type":"string"
+                                                      },
+                                                      {
+                                                        "name":"content",
+                                                        "type":"string"
+                                                      }
+                                                    ]
+                                                  }
+                                                }
+                                              ]
+                                            }
+                                          ]
+                                        }
+                                      }
+                                    ]
+                                  }
+                                ]
+                              }
+                            }
+                          ]
+                        }
+                      },
+                      {
+                        "name": "administrationInformation",
+                        "type": {
+                          "type": "record",
+                          "name": "cbaCdsChangeHistory47726",
+                          "fields": [
+                            {
+                              "name": "changeRecord",
+                              "type": [
+                                "null",
+                                {
+                                  "type": "array",
+                                  "items": {
+                                    "type": "record",
+                                    "name": "cbaCdsChangeRecord52895",
+                                    "fields": [
+                                      {
+                                        "name":"userId",
+                                        "type":"string"
+                                      },
+                                      {
+                                        "name":"dateTime",
+                                        "type":"string"
+                                      }
+                                    ]
+                                  }
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      }
+                    ]
+                  }
+                },
+                {
+                  "name": "relationRecord",
+                  "type": {
+                    "type": "record",
+                    "name": "cbaCdsRelationRecord56271",
+                    "fields": [
+                      {
+                        "name": "relationRecordHeader",
+                        "type": {
+                          "type": "record",
+                          "name": "cbaCdsRelationRecrdHeader59530",
+                          "fields": [
+                            {
+                              "name":"objectTaskChangeIndicator",
+                              "type":"string"
+                            },
+                            {
+                              "name": "administrationInformation",
+                              "type": {
+                                "type": "record",
+                                "name": "cbaCdsChangeRecord63059",
+                                "fields": [
+                                  {
+                                    "name":"userId",
+                                    "type":"string"
+                                  },
+                                  {
+                                    "name":"dateTime",
+                                    "type":"string"
+                                  }
+                                ]
+                              }
+                            }
+                          ]
+                        }
+                      },
+                      {
+                        "name": "relationInformation",
+                        "type": {
+                          "type": "record",
+                          "name": "cbaCdsRelationInfo66505",
+                          "fields": [
+                            {
+                              "name": "generalInformation",
+                              "type": {
+                                "type": "record",
+                                "name": "cbaCdsIonGeneralInfo69615",
+                                "fields": [
+                                  {
+                                    "name": "generalData",
+                                    "type": {
+                                      "type": "record",
+                                      "name": "cbaCdsRelationGeneralData73120",
+                                      "fields": [
+                                        {
+                                          "name":"validityStartDate",
+                                          "type":"string"
+                                        },
+                                        {
+                                          "name":"relationTypeCode",
+                                          "type":"string"
+                                        },
+                                        {
+                                          "name":"defaultRelationIndicator",
+                                          "type":"string"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  {
+                                    "name": "attributesInfo",
+                                    "type": {
+                                      "type": "record",
+                                      "name": "cbaCdsCbaBpRelAttrib76735",
+                                      "fields": [
+                                        {
+                                          "name": "relationAttributes",
+                                          "type": [
+                                            "null",
+                                            {
+                                              "type": "array",
+                                              "items": {
+                                                "type": "record",
+                                                "name": "cbaCdsCbaBpRelAttri381811",
+                                                "fields": [
+                                                  {
+                                                    "name":"relationAttributesDatakey",
+                                                    "type":"string"
+                                                  },
+                                                  {
+                                                    "name": "relationAttributesData",
+                                                    "type": {
+                                                      "type": "record",
+                                                      "name": "cbaCdsCbaBpRelAttri284891",
+                                                      "fields": [
+                                                        {
+                                                          "name":"attrVal",
+                                                          "type":"string"
+                                                        },
+                                                        {
+                                                          "name":"attrComment",
+                                                          "type":"string"
+                                                        }
+                                                      ]
+                                                    }
+                                                  },
+                                                  {
+                                                    "name":"relationAttributesDesc",
+                                                    "type":"string"
+                                                  }
+                                                ]
+                                              }
+                                            }
+                                          ]
+                                        }
+                                      ]
+                                    }
+                                  }
+                                ]
+                              }
+                            }
+                          ]
+                        }
+                      }
+                    ]
+                  }
+                }
+              ]
+            }
+          }
+        ]
+      }
+    }
+  ]
+}

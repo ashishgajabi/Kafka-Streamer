@@ -1,0 +1,705 @@
+{
+  "type": "record",
+  "name": "MasterContractLimitsInformation",
+  "namespace": "au.com.cba.kafka.mastercontract.limits.v1",
+  "doc": "This schema is to support publishing of master contract limits information from SAP Banking",
+  "fields": [
+    {
+      "name": "header",
+      "type": {
+        "type": "record",
+        "name": "KafkaEventHeader",
+        "namespace": "au.com.cba.kafka.core.v1",
+        "fields": [
+          {
+            "name": "msgId",
+            "type": {
+              "type": "string",
+              "avro.java.string": "String"
+            }
+          },
+          {
+            "name": "correlationId",
+            "type": {
+              "type": "string",
+              "avro.java.string": "String"
+            }
+          },
+          {
+            "name": "processPath",
+            "type": [
+              "null",
+              {
+                "type": "array",
+                "items": {
+                  "type": "record",
+                  "name": "ProcessPathElement",
+                  "fields": [
+                    {
+                      "name": "source",
+                      "type": {
+                        "type": "string",
+                        "avro.java.string": "String"
+                      }
+                    },
+                    {
+                      "name": "timestamp",
+                      "type": {
+                        "type": "string",
+                        "avro.java.string": "String"
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "name": "createTimestamp",
+      "type": "string"
+    },
+    {
+      "name": "mclimitdata",
+      "type": {
+        "type": "record",
+        "name": "cbaMcmStrCdsMcLimits0",
+        "fields": [
+          {
+            "name": "commonInformation",
+            "type": {
+              "type": "record",
+              "name": "cbaMcmStrCdsCommonData3583",
+              "fields": [
+                {
+                  "name": "mcAnchorData",
+                  "type": {
+                    "type": "record",
+                    "name": "cbaMcmStrCdsAnchor8870",
+                    "fields": [
+                      {
+                        "name": "internalAccountId",
+                        "type": "string"
+                      },
+                      {
+                        "name": "contractChangeTimestamp",
+                        "type": "string"
+                      },
+                      {
+                        "name": "validFrom",
+                        "type": "string"
+                      },
+                      {
+                        "name": "validTo",
+                        "type": "string"
+                      },
+                      {
+                        "name": "validToReal",
+                        "type": "string"
+                      },
+                      {
+                        "name": "contractBegin",
+                        "type": "string"
+                      },
+                      {
+                        "name": "contractPlannedEnd",
+                        "type": "string"
+                      },
+                      {
+                        "name": "contractActualEnd",
+                        "type": "string"
+                      },
+                      {
+                        "name": "contractProcessFrom",
+                        "type": "string"
+                      },
+                      {
+                        "name": "contractProductiveFrom",
+                        "type": "string"
+                      },
+                      {
+                        "name": "productIdInternal",
+                        "type": "string"
+                      },
+                      {
+                        "name": "productVersion",
+                        "type": "string"
+                      },
+                      {
+                        "name": "productCategory",
+                        "type": "string"
+                      },
+                      {
+                        "name": "accountCurrency",
+                        "type": "string"
+                      },
+                      {
+                        "name": "accountCurrencyIso",
+                        "type": "string"
+                      },
+                      {
+                        "name": "calenderKey1",
+                        "type": "string"
+                      },
+                      {
+                        "name": "calenderKey2",
+                        "type": "string"
+                      },
+                      {
+                        "name": "calenderKey3",
+                        "type": "string"
+                      },
+                      {
+                        "name": "status",
+                        "type": "string"
+                      },
+                      {
+                        "name": "tobeReleased",
+                        "type": "string"
+                      },
+                      {
+                        "name": "authGroup",
+                        "type": "string"
+                      },
+                      {
+                        "name": "userLastChange",
+                        "type": "string"
+                      },
+                      {
+                        "name": "changeBtcatg",
+                        "type": "string"
+                      },
+                      {
+                        "name": "migrationGroup",
+                        "type": "string"
+                      },
+                      {
+                        "name": "product",
+                        "type": "string"
+                      },
+                      {
+                        "name": "productdescr",
+                        "type": "string"
+                      }
+                    ]
+                  }
+                },
+                {
+                  "name": "mcExtNo",
+                  "type": "string"
+                },
+                {
+                  "name": "cbaExtension1",
+                  "type": {
+                    "type": "record",
+                    "name": "cbaDmStrCdsExtData115994",
+                    "fields": [
+                      {
+                        "name": "moo",
+                        "type": "string"
+                      },
+                      {
+                        "name": "acOpnRsnCode",
+                        "type": "string"
+                      },
+                      {
+                        "name": "isRelForRelat",
+                        "type": "string"
+                      },
+                      {
+                        "name": "acctUse",
+                        "type": "string"
+                      },
+                      {
+                        "name": "classCode",
+                        "type": "string"
+                      },
+                      {
+                        "name": "fundSource",
+                        "type": "string"
+                      },
+                      {
+                        "name": "salesChannel",
+                        "type": "string"
+                      },
+                      {
+                        "name": "salesProduct",
+                        "type": "string"
+                      },
+                      {
+                        "name": "preAllcObjid",
+                        "type": "string"
+                      },
+                      {
+                        "name": "crossRefId",
+                        "type": "string"
+                      },
+                      {
+                        "name": "shortName",
+                        "type": "string"
+                      },
+                      {
+                        "name": "manualAccTitle",
+                        "type": "string"
+                      },
+                      {
+                        "name": "accountTitle",
+                        "type": "string"
+                      },
+                      {
+                        "name": "cardAccess",
+                        "type": "string"
+                      },
+                      {
+                        "name": "edtsFlag",
+                        "type": "string"
+                      },
+                      {
+                        "name": "inCollections",
+                        "type": "string"
+                      },
+                      {
+                        "name": "phonCntctTdma",
+                        "type": "string"
+                      },
+                      {
+                        "name": "depIntType",
+                        "type": "string"
+                      },
+                      {
+                        "name": "packageCode",
+                        "type": "string"
+                      },
+                      {
+                        "name": "earlTranDate",
+                        "type": "string"
+                      },
+                      {
+                        "name": "macroSegment",
+                        "type": "string"
+                      },
+                      {
+                        "name": "bankStmtCopies",
+                        "type": "string"
+                      },
+                      {
+                        "name": "secondaryPoc",
+                        "type": "string"
+                      },
+                      {
+                        "name": "agentNumCheck",
+                        "type": "string"
+                      },
+                      {
+                        "name": "pstAllcDeptId",
+                        "type": "string"
+                      },
+                      {
+                        "name": "affiliate",
+                        "type": "string"
+                      },
+                      {
+                        "name": "altProductId",
+                        "type": "string"
+                      }
+                    ]
+                  }
+                },
+                {
+                  "name": "mcAddAttrResult",
+                  "type": {
+                    "type": "record",
+                    "name": "cbaMcmStrCdsMcZatr23499",
+                    "fields": [
+                      {
+                        "name": "zatrMcType",
+                        "type": "string"
+                      },
+                      {
+                        "name": "zatrMcName",
+                        "type": "string"
+                      },
+                      {
+                        "name": "zatrMcStatus",
+                        "type": "string"
+                      },
+                      {
+                        "name": "zatrMcStatusLastChanged",
+                        "type": "string"
+                      }
+                    ]
+                  }
+                },
+                {
+                  "name": "subCategory",
+                  "type": "string"
+                },
+                {
+                  "name": "addInfo1",
+                  "type": "string"
+                },
+                {
+                  "name": "addInfo2",
+                  "type": "string"
+                },
+                {
+                  "name": "addInfo3",
+                  "type": "string"
+                },
+                {
+                  "name": "crtUser",
+                  "type": "string"
+                },
+                {
+                  "name": "crtTimestamp",
+                  "type": "string"
+                },
+                {
+                  "name": "chgUser",
+                  "type": "string"
+                },
+                {
+                  "name": "chgTimestamp",
+                  "type": "string"
+                }
+              ]
+            }
+          },
+          {
+            "name": "limitResult",
+            "type": {
+              "type": "record",
+              "name": "cbaMcmStrCdsLmEnqoutR4027169",
+              "fields": [
+                {
+                  "name": "dateOfLastLimitChange",
+                  "type": "string"
+                },
+                {
+                  "name": "overdraftInfo",
+                  "type": {
+                    "type": "record",
+                    "name": "cbaMcmBStrCdsZodiDdR3133673",
+                    "fields": [
+                      {
+                        "name": "zodiRegAcct",
+                        "type": "string"
+                      },
+                      {
+                        "name": "zodiNomBpId",
+                        "type": "string"
+                      },
+                      {
+                        "name": "zodiWeakAcct",
+                        "type": "string"
+                      },
+                      {
+                        "name": "zodiCrRiskRat",
+                        "type": "string"
+                      },
+                      {
+                        "name": "zodiLossDef",
+                        "type": "string"
+                      },
+                      {
+                        "name": "zodiProbDef",
+                        "type": "string"
+                      },
+                      {
+                        "name": "zodiModJudgmnt",
+                        "type": "string"
+                      },
+                      {
+                        "name": "zodiPdlgdDate",
+                        "type": "string"
+                      }
+                    ]
+                  }
+                },
+                {
+                  "name": "eTabZlimDataCl",
+                  "type": [
+                    "null",
+                    {
+                      "type": "array",
+                      "items": {
+                        "type": "record",
+                        "name": "cbaMcmStrCdsMultiLimR2940687",
+                        "fields": [
+                          {
+                            "name": "limitCategory",
+                            "type": "string"
+                          },
+                          {
+                            "name": "limitAmount",
+                            "type": "double"
+                          },
+                          {
+                            "name": "limitCurrency",
+                            "type": "string"
+                          },
+                          {
+                            "name": "zlimSlNo",
+                            "type": "string"
+                          },
+                          {
+                            "name": "zlimCategory",
+                            "type": "string"
+                          },
+                          {
+                            "name": "zlimObjTy",
+                            "type": "string"
+                          },
+                          {
+                            "name": "zlimPurpose",
+                            "type": "string"
+                          },
+                          {
+                            "name": "zlimSecType",
+                            "type": "string"
+                          },
+                          {
+                            "name": "zlimRedType",
+                            "type": "string"
+                          },
+                          {
+                            "name": "zlimDeactInd",
+                            "type": "string"
+                          },
+                          {
+                            "name": "zlimCrDate",
+                            "type": "string"
+                          }
+                        ]
+                      }
+                    }
+                  ]
+                },
+                {
+                  "name": "seasonallimitdata",
+                  "type": [
+                    "null",
+                    {
+                      "type": "array",
+                      "items": {
+                        "type": "record",
+                        "name": "cbaDmStrCdsSeaslimitdAll49514",
+                        "fields": [
+                          {
+                            "name": "limitPurpose",
+                            "type": "string"
+                          },
+                          {
+                            "name": "limitCreationDate",
+                            "type": "string"
+                          },
+                          {
+                            "name": "securityType",
+                            "type": "string"
+                          },
+                          {
+                            "name": "limitStatus",
+                            "type": "string"
+                          },
+                          {
+                            "name": "effectiveStartDate",
+                            "type": "string"
+                          },
+                          {
+                            "name": "effectiveEndDate",
+                            "type": "string"
+                          },
+                          {
+                            "name": "seasonalLimitNumber",
+                            "type": "string"
+                          },
+                          {
+                            "name": "seasonalLimitIdentification",
+                            "type": "string"
+                          },
+                          {
+                            "name": "startOfTerm",
+                            "type": "string"
+                          },
+                          {
+                            "name": "endOfTerm",
+                            "type": "string"
+                          },
+                          {
+                            "name": "seasonalLimitType",
+                            "type": "string"
+                          },
+                          {
+                            "name": "seasonalLimitLine",
+                            "type": "string"
+                          },
+                          {
+                            "name": "seasonalLimitTerm",
+                            "type": "long"
+                          },
+                          {
+                            "name": "seasonalLimitTermUnit",
+                            "type": "string"
+                          },
+                          {
+                            "name": "indicatorPermanent",
+                            "type": "string"
+                          },
+                          {
+                            "name": "seasonalLimitRefNumber",
+                            "type": "string"
+                          },
+                          {
+                            "name": "seasonalLimitAmount",
+                            "type": "double"
+                          },
+                          {
+                            "name": "seasonalLimitCurrency",
+                            "type": "string"
+                          },
+                          {
+                            "name": "seasonalLimitCurrIso",
+                            "type": "string"
+                          },
+                          {
+                            "name": "seasonalLimitTargetAmount",
+                            "type": "double"
+                          },
+                          {
+                            "name": "seasonalLimitTargetCurrency",
+                            "type": "string"
+                          },
+                          {
+                            "name": "seasonalLimitTargetCurrIso",
+                            "type": "string"
+                          },
+                          {
+                            "name": "period",
+                            "type": "string"
+                          },
+                          {
+                            "name": "periodUnit",
+                            "type": "string"
+                          },
+                          {
+                            "name": "weekdayMonday",
+                            "type": "string"
+                          },
+                          {
+                            "name": "weekdayTuesday",
+                            "type": "string"
+                          },
+                          {
+                            "name": "weekdayWednesday",
+                            "type": "string"
+                          },
+                          {
+                            "name": "weekdayThursday",
+                            "type": "string"
+                          },
+                          {
+                            "name": "weekdayFriday",
+                            "type": "string"
+                          },
+                          {
+                            "name": "weekdaySaturday",
+                            "type": "string"
+                          },
+                          {
+                            "name": "weekdaySunday",
+                            "type": "string"
+                          },
+                          {
+                            "name": "weekdayShiftNo",
+                            "type": "long"
+                          },
+                          {
+                            "name": "weekdayShift",
+                            "type": "string"
+                          },
+                          {
+                            "name": "weekdayShiftEnd",
+                            "type": "string"
+                          },
+                          {
+                            "name": "weekdayDaytype",
+                            "type": "string"
+                          },
+                          {
+                            "name": "seasonalLimitPercIncrement",
+                            "type": "double"
+                          },
+                          {
+                            "name": "seasonalLimitUpdownMark",
+                            "type": "string"
+                          },
+                          {
+                            "name": "seasonalLimitPercentage",
+                            "type": "double"
+                          },
+                          {
+                            "name": "seasonalLimitPercentageMin",
+                            "type": "long"
+                          },
+                          {
+                            "name": "seasonalLimitPercentageMax",
+                            "type": "double"
+                          },
+                          {
+                            "name": "seasonalLimitPriority",
+                            "type": "string"
+                          },
+                          {
+                            "name": "seasonalLimitReferPercent",
+                            "type": "string"
+                          }
+                        ]
+                      }
+                    }
+                  ]
+                },
+                {
+                  "name": "perioddaysdata",
+                  "type": [
+                    "null",
+                    {
+                      "type": "array",
+                      "items": {
+                        "type": "record",
+                        "name": "cbaDmStrCdsBcslPdDdGet67499",
+                        "fields": [
+                          {
+                            "name": "seasonalLimitNumber",
+                            "type": "string"
+                          },
+                          {
+                            "name": "daynr",
+                            "type": "string"
+                          },
+                          {
+                            "name": "monthnr",
+                            "type": "string"
+                          }
+                        ]
+                      }
+                    }
+                  ]
+                },
+                {
+                  "name": "limitTotalAmt",
+                  "type": "double"
+                },
+                {
+                  "name": "limitTotalCurrency",
+                  "type": "string"
+                }
+              ]
+            }
+          }
+        ]
+      }
+    }
+  ]
+}
